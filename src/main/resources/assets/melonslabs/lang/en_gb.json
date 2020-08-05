@@ -1,5 +1,7 @@
 {
     "block.melonslabs.melon_slab": "Melon Slab",
     "block.melonslabs.pumpkin_slab": "Pumpkin Slab",
-    "itemGroup.melonslabs.group": "Melon Slabs"
+    "itemGroup.melonslabs.group": "Melon Slabs",
+    "item.melonslabs.pumpkin_slice": "Pumpkin Slice",
+    "item.melonslabs.cooked_pumpkin_slice": "Cooked Pumpkin Slice"
 }
