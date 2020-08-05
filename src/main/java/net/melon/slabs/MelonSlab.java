@@ -8,7 +8,6 @@ public class MelonSlab extends SlabBlock{
 
     public MelonSlab() {
         super(FabricBlockSettings.copy(Blocks.MELON));
-        // TODO Auto-generated constructor stub
     }
     
 }
