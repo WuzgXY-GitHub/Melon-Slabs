@@ -23,6 +23,7 @@
     ]
   },
   "mixins": [
+    "melonslabs.mixins.json"
   ],
 
   "depends": {
