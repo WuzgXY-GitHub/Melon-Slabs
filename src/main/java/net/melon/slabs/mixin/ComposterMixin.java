@@ -29,9 +29,8 @@ public class ComposterMixin{
 
     @Inject(at = @At("HEAD"), method = "registerDefaultCompostableItems")
     private static void registerDefaultCompostableITems(CallbackInfo info) {
-        System.out.println("hi");
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.MELON_SLAB.asItem(), 0.5f);
-        System.out.println("hi");
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.PUMPKIN_SLAB.asItem(), 0.5f);
     }
 
     // @Inject(at = @At("TAIL"), method = "onUse")
