@@ -3,10 +3,14 @@ package net.melon.slabs;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CactusBlock;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -24,6 +28,11 @@ public class CactusSlab extends CactusBlock{
         super(FabricBlockSettings.copy(Blocks.CACTUS));
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0));
     }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState blockState) {
+        return BlockRenderType.MODEL;
+    }
     
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -37,7 +46,7 @@ public class CactusSlab extends CactusBlock{
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) { 
         BlockPos blockPos = pos.down();
-        return world.getBlockState(blockPos).getMaterial().isSolid();
+        return (world.getBlockState(blockPos).getMaterial().isSolid() && world.getBlockState(blockPos).isFullCube(world, blockPos));
         //return false;   
      }
 
