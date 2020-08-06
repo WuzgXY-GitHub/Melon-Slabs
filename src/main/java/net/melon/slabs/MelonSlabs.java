@@ -17,7 +17,7 @@ public class MelonSlabs implements ModInitializer {
     //Blocks
     private static final Block MELON_SLAB_BLOCK = new MelonSlab();
     private static final Block PUMPKIN_SLAB_BLOCK = new PumpkinSlab();
-    private static final Block CACTUS_SLAB_BLOCK = new CactusSlab();
+    public static final Block CACTUS_SLAB_BLOCK = new CactusSlab();
 
     //Item group
     private static final ItemGroup GROUP = FabricItemGroupBuilder.build(new Identifier("melonslabs", "group"), () -> new ItemStack(MelonSlabs.MELON_SLAB));

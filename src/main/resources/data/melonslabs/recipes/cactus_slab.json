@@ -5,11 +5,11 @@
     ],
     "key": {
         "#": {
-            "item": "minecraft:melon"
+            "item": "minecraft:cactus"
         }
     },
     "result": {
-        "item": "melonslabs:melon_slab",
+        "item": "melonslabs:cactus_slab",
         "count": 6
     }
 }

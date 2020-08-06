@@ -1,5 +1,7 @@
 package net.melon.slabs;
 
+import java.util.Random;
+
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import net.minecraft.block.Block;
@@ -11,6 +13,7 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -44,11 +47,32 @@ public class CactusSlab extends CactusBlock{
         return OUTLINE_SHAPE;
     }
 
+    @Override
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (Blocks.CACTUS.canPlaceAt(state, world, pos)){
+            int i;
+            for(i = 1; world.getBlockState(pos.down(i)).isOf(Blocks.CACTUS); ++i) {
+            }
+
+            if (i < 4) {
+                int j = (Integer)state.get(AGE);
+                if (j == 7) {
+                    world.setBlockState(pos, Blocks.CACTUS.getDefaultState());
+                    state.neighborUpdate(world, pos, this, pos, false);
+                } else {
+                    world.setBlockState(pos, (BlockState)state.with(AGE, j + 1), 4);
+                }
+            }
+        }
+    }
+
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) { 
         BlockPos blockPos = pos.down();
-        return (world.getBlockState(blockPos).getMaterial().isSolid() && world.getBlockState(blockPos).isFullCube(world, blockPos));
+        BlockState blockState = world.getBlockState(blockPos);
+        return (blockState.getMaterial().isSolid() && blockState.isFullCube(world, blockPos)) || blockState.isOf(Blocks.CACTUS);
         //return false;   
-     }
+    }
+
 
     static {
         OUTLINE_SHAPE = Block.createCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D);
