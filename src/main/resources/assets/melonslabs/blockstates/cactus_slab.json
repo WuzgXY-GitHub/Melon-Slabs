@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"type=bottom": { "model": "melonslabs:block/cactus_slab" },
+		"type=top": { "model": "melonslabs:block/cactus_slab_top" },
+		"type=double": { "model": "block/cactus" }
+	}
+}
