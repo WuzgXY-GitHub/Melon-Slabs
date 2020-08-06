@@ -1,8 +1,10 @@
 package net.melon.slabs;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -27,8 +29,11 @@ public class MelonSlabs implements ModInitializer {
     public static final Item PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).snack().build()));
     public static final Item COOKED_PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(2.4f).build()));
 
+
     @Override
     public void onInitialize() {
+        BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.CACTUS_SLAB_BLOCK, RenderLayer.getCutout());
+
         Registry.register(Registry.BLOCK, "melonslabs:melon_slab", MELON_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:pumpkin_slab", PUMPKIN_SLAB_BLOCK);
