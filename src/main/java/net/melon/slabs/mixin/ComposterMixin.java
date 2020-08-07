@@ -20,7 +20,9 @@ public class ComposterMixin{
     @Inject(at = @At("HEAD"), method = "registerDefaultCompostableItems")
     private static void registerDefaultCompostableITems(CallbackInfo info) {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.MELON_SLAB.asItem(), 0.55f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.MELON_STAIRS.asItem(), 0.6f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.PUMPKIN_SLAB.asItem(), 0.55f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.PUMPKIN_STAIRS.asItem(), 0.6f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.PUMPKIN_SLICE.asItem(), 0.5f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.COOKED_PUMPKIN_SLICE.asItem(), 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(MelonSlabs.CACTUS_SLAB.asItem(), 0.3f);
