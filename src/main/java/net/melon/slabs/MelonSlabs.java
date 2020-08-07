@@ -17,7 +17,7 @@ public class MelonSlabs implements ModInitializer {
     //Blocks
     private static final Block MELON_SLAB_BLOCK = new MelonSlab();
     private static final Block PUMPKIN_SLAB_BLOCK = new PumpkinSlab();
-    private static final Block CARVED_PUMPKIN_SLAB_BLOCK = new CarvedPumpkinSlab();
+    public static final Block CARVED_PUMPKIN_SLAB_BLOCK = new CarvedPumpkinSlab();
     private static final Block PUMPKIN_STAIRS_BLOCK = new PumpkinStairs();
     public static final Block CACTUS_SLAB_BLOCK = new CactusSlab();
     public static final Block MELON_STAIRS_BLOCK = new MelonStairs();
