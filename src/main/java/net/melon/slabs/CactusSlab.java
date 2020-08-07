@@ -56,8 +56,8 @@ public class CactusSlab extends CactusBlock{
 
             if (i < 4) {
                 int j = (Integer)state.get(AGE);
-                if (j == 7) {
-                    world.setBlockState(pos, Blocks.CACTUS.getDefaultState());
+                if (j >= 7) {
+                    world.setBlockState(pos, Blocks.CACTUS.getDefaultState().with(AGE,0));
                     state.neighborUpdate(world, pos, this, pos, false);
                 } else {
                     world.setBlockState(pos, (BlockState)state.with(AGE, j + 1), 4);

@@ -18,11 +18,13 @@ public class MelonSlabs implements ModInitializer {
     private static final Block MELON_SLAB_BLOCK = new MelonSlab();
     private static final Block PUMPKIN_SLAB_BLOCK = new PumpkinSlab();
     public static final Block CACTUS_SLAB_BLOCK = new CactusSlab();
+    public static final Block MELON_STAIRS_BLOCK = new MelonStairs();
 
     //Item group
     private static final ItemGroup GROUP = FabricItemGroupBuilder.build(new Identifier("melonslabs", "group"), () -> new ItemStack(MelonSlabs.MELON_SLAB));
 
     //Items
+    public static final Item MELON_STAIRS = new BlockItem(MELON_STAIRS_BLOCK, new Item.Settings().group(GROUP));
     public static final Item MELON_SLAB = new BlockItem(MELON_SLAB_BLOCK, new Item.Settings().group(GROUP));
     public static final Item CACTUS_SLAB = new BlockItem(CACTUS_SLAB_BLOCK, new Item.Settings().group(GROUP));
     public static final Item PUMPKIN_SLAB = new BlockItem(PUMPKIN_SLAB_BLOCK, new Item.Settings().group(GROUP));
@@ -33,12 +35,15 @@ public class MelonSlabs implements ModInitializer {
     @Override
     public void onInitialize() {
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.CACTUS_SLAB_BLOCK, RenderLayer.getCutout());
-
-        Registry.register(Registry.BLOCK, "melonslabs:melon_slab", MELON_SLAB_BLOCK);
+        
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB_BLOCK);
+        // Registry.register(Registry.BLOCK, "melonslabs:melon_stairs", MELON_STAIRS_BLOCK);
+        Registry.register(Registry.BLOCK, "melonslabs:melon_slab", MELON_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:pumpkin_slab", PUMPKIN_SLAB_BLOCK);
-        Registry.register(Registry.ITEM, "melonslabs:melon_slab", MELON_SLAB);
+        
         Registry.register(Registry.ITEM, "melonslabs:cactus_slab", CACTUS_SLAB);
+        // Registry.register(Registry.ITEM, "melonslabs:melon_stairs", MELON_STAIRS);
+        Registry.register(Registry.ITEM, "melonslabs:melon_slab", MELON_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_slab", PUMPKIN_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_slice", PUMPKIN_SLICE);
         Registry.register(Registry.ITEM, "melonslabs:cooked_pumpkin_slice", COOKED_PUMPKIN_SLICE);

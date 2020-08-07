@@ -21,7 +21,6 @@ public abstract class CactusMixin extends Block{
 
     public CactusMixin(Settings settings) {
         super(settings);
-        // TODO Auto-generated constructor stub
     }
 
     @Shadow
@@ -37,7 +36,7 @@ public abstract class CactusMixin extends Block{
 
          if (i < 4) {
             int j = (Integer)state.get(AGE);
-            if (j == 7) {
+            if (j >= 7) {
                world.setBlockState(blockPos, MelonSlabs.CACTUS_SLAB_BLOCK.getDefaultState());
                BlockState blockState = (BlockState)state.with(AGE, 0);
                world.setBlockState(pos, blockState, 4);
