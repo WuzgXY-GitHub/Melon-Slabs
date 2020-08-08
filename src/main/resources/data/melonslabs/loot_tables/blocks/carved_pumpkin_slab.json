@@ -17,8 +17,12 @@
                   }
                 ],
                 "count": 2
-              },
-              { "function": "minecraft:explosion_decay" }
+              }
+            ],
+            "conditions": [
+              {
+                "condition": "minecraft:survives_explosion"
+              }
             ],
             "name": "melonslabs:carved_pumpkin_slab"
           }

@@ -18,6 +18,7 @@ public class MelonSlabs implements ModInitializer {
     private static final Block MELON_SLAB_BLOCK = new MelonSlab();
     private static final Block PUMPKIN_SLAB_BLOCK = new PumpkinSlab();
     public static final Block CARVED_PUMPKIN_SLAB_BLOCK = new CarvedPumpkinSlab();
+    public static final Block JACK_O_SLAB_BLOCK = new JackOSlab();
     private static final Block PUMPKIN_STAIRS_BLOCK = new PumpkinStairs();
     public static final Block CACTUS_SLAB_BLOCK = new CactusSlab();
     public static final Block MELON_STAIRS_BLOCK = new MelonStairs();
@@ -32,6 +33,7 @@ public class MelonSlabs implements ModInitializer {
     public static final Item PUMPKIN_STAIRS = new BlockItem(PUMPKIN_STAIRS_BLOCK, new Item.Settings().group(GROUP));
     public static final Item PUMPKIN_SLAB = new BlockItem(PUMPKIN_SLAB_BLOCK, new Item.Settings().group(GROUP));
     public static final Item CARVED_PUMPKIN_SLAB = new BlockItem(CARVED_PUMPKIN_SLAB_BLOCK, new Item.Settings().group(GROUP));
+    public static final Item JACK_O_SLAB = new BlockItem(JACK_O_SLAB_BLOCK, new Item.Settings().group(GROUP));
     public static final Item PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).snack().build()));
     public static final Item COOKED_PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(2.4f).build()));
 
@@ -39,6 +41,7 @@ public class MelonSlabs implements ModInitializer {
     @Override
     public void onInitialize() {
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.CACTUS_SLAB_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.JACK_O_SLAB_BLOCK, RenderLayer.getCutout());
         
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:melon_stairs", MELON_STAIRS_BLOCK);
@@ -46,6 +49,7 @@ public class MelonSlabs implements ModInitializer {
         Registry.register(Registry.BLOCK, "melonslabs:pumpkin_stairs", PUMPKIN_STAIRS_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:pumpkin_slab", PUMPKIN_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:carved_pumpkin_slab", CARVED_PUMPKIN_SLAB_BLOCK);
+        Registry.register(Registry.BLOCK, "melonslabs:jack_o_slab", JACK_O_SLAB_BLOCK);
         
         Registry.register(Registry.ITEM, "melonslabs:cactus_slab", CACTUS_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:melon_stairs", MELON_STAIRS);
@@ -53,6 +57,7 @@ public class MelonSlabs implements ModInitializer {
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_stairs", PUMPKIN_STAIRS);
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_slab", PUMPKIN_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:carved_pumpkin_slab", CARVED_PUMPKIN_SLAB);
+        Registry.register(Registry.ITEM, "melonslabs:jack_o_slab", JACK_O_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_slice", PUMPKIN_SLICE);
         Registry.register(Registry.ITEM, "melonslabs:cooked_pumpkin_slice", COOKED_PUMPKIN_SLICE);
     }

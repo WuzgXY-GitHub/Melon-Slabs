@@ -17,6 +17,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -33,6 +34,9 @@ public class PumpkinSlab extends SlabBlock{
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.getItem() == Items.SHEARS) {
             if (!world.isClient) {
+                itemStack.damage(1, (PlayerEntity)player, (Consumer)(PlayerEntity) -> {
+                    ((LivingEntity) PlayerEntity).sendToolBreakStatus(hand);
+                });
                 
                 Boolean waterlogged = state.get(WATERLOGGED);
                 SlabType slabType = (SlabType)state.get(TYPE);
@@ -46,10 +50,6 @@ public class PumpkinSlab extends SlabBlock{
                 ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D + (double)direction2.getOffsetX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction2.getOffsetZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, itemNum));
                 itemEntity.setVelocity(0.05D * (double)direction2.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction2.getOffsetZ() + world.random.nextDouble() * 0.02D);
                 world.spawnEntity(itemEntity);
-
-                // itemStack.damage(1, (LivingEntity)player, (Consumer)((playerEntity) -> {
-                //     playerEntity.sendToolBreakStatus(hand);
-                // }));
             }
   
            return ActionResult.success(world.isClient);

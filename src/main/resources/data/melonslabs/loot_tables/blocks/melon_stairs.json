@@ -6,12 +6,12 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "melonslabs:melon_stairs"
-          }
-        ],
-        "conditions": [
-          {
-            "condition" : "minecraft:survives_explosion"
+            "name": "melonslabs:melon_stairs",
+            "conditions": [
+              {
+                "condition" : "minecraft:survives_explosion"
+              }
+            ]
           }
         ]
       }

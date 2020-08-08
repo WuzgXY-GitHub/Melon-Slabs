@@ -6,12 +6,12 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "melonslabs:cactus_slab"
-          }
-        ],
-        "conditions": [
-          {
-            "condition" : "minecraft:survives_explosion"
+            "name": "melonslabs:cactus_slab",
+            "conditions": [
+              {
+                "condition" : "minecraft:survives_explosion"
+              }
+            ]
           }
         ]
       }
