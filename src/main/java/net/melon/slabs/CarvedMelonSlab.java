@@ -23,10 +23,10 @@ import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.fluid.Fluids;
 
 
-public class CarvedPumpkinSlab extends SlabBlock{
+public class CarvedMelonSlab extends SlabBlock{
     public static final DirectionProperty FACING;
-    public CarvedPumpkinSlab() {
-        super(FabricBlockSettings.copy(Blocks.PUMPKIN));
+    public CarvedMelonSlab() {
+        super(FabricBlockSettings.copy(Blocks.MELON));
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH));
     }
 
@@ -41,8 +41,8 @@ public class CarvedPumpkinSlab extends SlabBlock{
         BlockState blockState = ctx.getWorld().getBlockState(blockPos);
         if (blockState.isOf(this)) {
             return (BlockState)((BlockState)blockState.with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
-        } else if (blockState.isOf(MelonSlabs.JACK_O_SLAB_BLOCK)){
-            return (BlockState)((BlockState)MelonSlabs.JACK_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
+        } else if (blockState.isOf(MelonSlabs.JILL_O_SLAB_BLOCK)){
+            return (BlockState)((BlockState)MelonSlabs.JILL_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
         } else {
             FluidState fluidState = ctx.getWorld().getFluidState(blockPos);
             BlockState blockState2 = (BlockState)((BlockState)this.getDefaultState().with(TYPE, SlabType.BOTTOM)).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER).with(FACING, ctx.getPlayerFacing().getOpposite());
@@ -51,11 +51,30 @@ public class CarvedPumpkinSlab extends SlabBlock{
         }
     }
 
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.getItem() == Items.TORCH) {
+
+            SlabType slabType = (SlabType)state.get(TYPE);
+
+            world.setBlockState(pos, (BlockState)(MelonSlabs.JILL_O_SLAB_BLOCK.getDefaultState().with(FACING, state.get(FACING)).with(TYPE, slabType)).with(WATERLOGGED, false));
+            
+            if (!player.abilities.creativeMode){
+                itemStack.decrement(1);
+            }
+            
+            return ActionResult.success(world.isClient);
+  
+        } else {
+            return super.onUse(state, world, pos, player, hand, hit);
+        }
+    }
+    
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
         ItemStack itemStack = context.getStack();
         SlabType slabType = (SlabType)state.get(TYPE);
-        if (slabType != SlabType.DOUBLE && (itemStack.getItem() == this.asItem() || itemStack.getItem() == MelonSlabs.JACK_O_SLAB.asItem())) {
+        if (slabType != SlabType.DOUBLE && (itemStack.getItem() == this.asItem() || itemStack.getItem() == MelonSlabs.JILL_O_SLAB.asItem())) {
            if (context.canReplaceExisting()) {
               boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5D;
               Direction direction = context.getSide();
@@ -72,24 +91,7 @@ public class CarvedPumpkinSlab extends SlabBlock{
         }
     }
 
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.getItem() == Items.TORCH) {
 
-            SlabType slabType = (SlabType)state.get(TYPE);
-
-            world.setBlockState(pos, (BlockState)(MelonSlabs.JACK_O_SLAB_BLOCK.getDefaultState().with(FACING, state.get(FACING)).with(TYPE, slabType)).with(WATERLOGGED, false));
-            
-            if (!player.abilities.creativeMode){
-                itemStack.decrement(1);
-            }
-            return ActionResult.success(world.isClient);
-  
-        } else {
-            return super.onUse(state, world, pos, player, hand, hit);
-        }
-    }
-    
     static{
         FACING = HorizontalFacingBlock.FACING;
     }

@@ -10,16 +10,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CactusBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.LiteralText;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
-import net.minecraft.util.math.Direction;
 
 
 public class CactusSlab extends CactusBlock{
@@ -27,7 +22,7 @@ public class CactusSlab extends CactusBlock{
 
     protected static final VoxelShape COLLISION_SHAPE;
 
-    public CactusSlab() {
+    public CactusSlab() {//hi
         super(FabricBlockSettings.copy(Blocks.CACTUS));
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0));
     }

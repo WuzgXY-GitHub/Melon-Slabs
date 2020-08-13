@@ -1,14 +1,5 @@
 package net.melon.slabs;
 
-import java.util.Random;
-
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.ItemEntity;
@@ -24,14 +15,24 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.HorizontalFacingBlock;
+import net.fabricmc.api.EnvType;
 
 
-public class JackOSlab extends SlabBlock{
+
+public class JillOSlab extends SlabBlock{
     public static final DirectionProperty FACING;
     private static final ParticleEffect PARTICLE;
     public boolean scheduled = false;
 
-    public JackOSlab() {
+    public JillOSlab() {
         super(FabricBlockSettings.copy(Blocks.JACK_O_LANTERN));
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH));
     }
@@ -46,9 +47,9 @@ public class JackOSlab extends SlabBlock{
         BlockPos blockPos = ctx.getBlockPos();
         BlockState blockState = ctx.getWorld().getBlockState(blockPos);
         if (blockState.isOf(this)) {
-            return (BlockState)((BlockState)blockState.with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false).with(FACING, ctx.getPlayerFacing().getOpposite());
-        } else if(blockState.isOf(MelonSlabs.CARVED_PUMPKIN_SLAB_BLOCK)){
-            return (BlockState)((BlockState)MelonSlabs.JACK_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false).with(FACING, blockState.get(FACING));
+            return (BlockState)((BlockState)blockState.with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
+        } else if (blockState.isOf(MelonSlabs.CARVED_MELON_SLAB_BLOCK)){
+            return (BlockState)((BlockState)MelonSlabs.JILL_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
         } else {
             BlockState blockState2 = (BlockState)((BlockState)this.getDefaultState().with(TYPE, SlabType.BOTTOM)).with(WATERLOGGED, false).with(FACING, ctx.getPlayerFacing().getOpposite());
             Direction direction = ctx.getSide();
@@ -60,7 +61,7 @@ public class JackOSlab extends SlabBlock{
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
         ItemStack itemStack = context.getStack();
         SlabType slabType = (SlabType)state.get(TYPE);
-        if (slabType != SlabType.DOUBLE && itemStack.getItem() == MelonSlabs.CARVED_PUMPKIN_SLAB.asItem()) {
+        if (slabType != SlabType.DOUBLE && itemStack.getItem() == MelonSlabs.CARVED_MELON_SLAB.asItem()) {
            if (context.canReplaceExisting()) {
               boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5D;
               Direction direction = context.getSide();
@@ -95,7 +96,7 @@ public class JackOSlab extends SlabBlock{
 
     public void update (BlockState state, World world, BlockPos pos){
         if (state.get(WATERLOGGED)){
-            world.setBlockState(pos, MelonSlabs.CARVED_PUMPKIN_SLAB_BLOCK.getDefaultState().with(FACING, state.get(FACING)).with(WATERLOGGED, true).with(TYPE,state.get(TYPE)));
+            world.setBlockState(pos, MelonSlabs.CARVED_MELON_SLAB_BLOCK.getDefaultState().with(FACING, state.get(FACING)).with(WATERLOGGED, true).with(TYPE,state.get(TYPE)));
 
             boolean up = (state.get(TYPE) == SlabType.TOP);
 
