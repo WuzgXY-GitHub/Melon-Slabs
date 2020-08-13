@@ -19,15 +19,15 @@ import net.minecraft.state.property.Properties;
 @Mixin(CactusBlock.class)
 public abstract class CactusMixin extends Block{
 
-    public CactusMixin(Settings settings) {
-        super(settings);
-    }
+   public CactusMixin(Settings settings) {
+      super(settings);
+   }
 
-    @Shadow
-    @Final
-    public static IntProperty AGE;
+   @Shadow
+   @Final
+   public static IntProperty AGE;
 
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+   public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
       BlockPos blockPos = pos.up();
       if (world.isAir(blockPos)) {
          int i;
@@ -47,9 +47,9 @@ public abstract class CactusMixin extends Block{
 
          }
       }
-    }
+   }
 
-    static{
-        AGE = Properties.AGE_15;
-    }
+   static{
+      AGE = Properties.AGE_15;
+   }
 }

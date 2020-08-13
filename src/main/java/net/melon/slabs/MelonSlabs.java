@@ -16,6 +16,10 @@ import net.minecraft.util.registry.Registry;
 public class MelonSlabs implements ModInitializer {
     //Blocks
     private static final Block MELON_SLAB_BLOCK = new MelonSlab();
+    public static final Block JILL_O_LANTERN_BLOCK = new JillOLantern();
+    public static final Block CARVED_MELON_BLOCK = new CarvedMelon();
+    public static final Block CARVED_MELON_SLAB_BLOCK = new CarvedMelonSlab();
+    public static final Block JILL_O_SLAB_BLOCK = new JillOSlab();
     private static final Block PUMPKIN_SLAB_BLOCK = new PumpkinSlab();
     public static final Block CARVED_PUMPKIN_SLAB_BLOCK = new CarvedPumpkinSlab();
     public static final Block JACK_O_SLAB_BLOCK = new JackOSlab();
@@ -27,8 +31,12 @@ public class MelonSlabs implements ModInitializer {
     private static final ItemGroup GROUP = FabricItemGroupBuilder.build(new Identifier("melonslabs", "group"), () -> new ItemStack(MelonSlabs.MELON_SLAB));
 
     //Items
+    public static final Item JILL_O_LANTERN = new BlockItem(JILL_O_LANTERN_BLOCK, new Item.Settings().group(GROUP));
     public static final Item MELON_STAIRS = new BlockItem(MELON_STAIRS_BLOCK, new Item.Settings().group(GROUP));
     public static final Item MELON_SLAB = new BlockItem(MELON_SLAB_BLOCK, new Item.Settings().group(GROUP));
+    public static final Item CARVED_MELON_SLAB = new BlockItem(CARVED_MELON_SLAB_BLOCK, new Item.Settings().group(GROUP));
+    public static final Item CARVED_MELON = new BlockItem(CARVED_MELON_BLOCK, new Item.Settings().group(GROUP));
+    public static final Item JILL_O_SLAB = new BlockItem(JILL_O_SLAB_BLOCK, new Item.Settings().group(GROUP));
     public static final Item CACTUS_SLAB = new BlockItem(CACTUS_SLAB_BLOCK, new Item.Settings().group(GROUP));
     public static final Item PUMPKIN_STAIRS = new BlockItem(PUMPKIN_STAIRS_BLOCK, new Item.Settings().group(GROUP));
     public static final Item PUMPKIN_SLAB = new BlockItem(PUMPKIN_SLAB_BLOCK, new Item.Settings().group(GROUP));
@@ -40,20 +48,31 @@ public class MelonSlabs implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        // System.out.println(FabricLoader.getInstance().getAllMods());
+
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.CACTUS_SLAB_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.JACK_O_SLAB_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.JILL_O_SLAB_BLOCK, RenderLayer.getCutout());
         
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB_BLOCK);
+        Registry.register(Registry.BLOCK, "melonslabs:jill_o_lantern", JILL_O_LANTERN_BLOCK);
+        Registry.register(Registry.BLOCK, "melonslabs:carved_melon", CARVED_MELON_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:melon_stairs", MELON_STAIRS_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:melon_slab", MELON_SLAB_BLOCK);
+        Registry.register(Registry.BLOCK, "melonslabs:carved_melon_slab", CARVED_MELON_SLAB_BLOCK);
+        Registry.register(Registry.BLOCK, "melonslabs:jill_o_slab", JILL_O_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:pumpkin_stairs", PUMPKIN_STAIRS_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:pumpkin_slab", PUMPKIN_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:carved_pumpkin_slab", CARVED_PUMPKIN_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:jack_o_slab", JACK_O_SLAB_BLOCK);
         
         Registry.register(Registry.ITEM, "melonslabs:cactus_slab", CACTUS_SLAB);
+        Registry.register(Registry.ITEM, "melonslabs:jill_o_lantern", JILL_O_LANTERN);
+        Registry.register(Registry.ITEM, "melonslabs:carved_melon", CARVED_MELON);
         Registry.register(Registry.ITEM, "melonslabs:melon_stairs", MELON_STAIRS);
         Registry.register(Registry.ITEM, "melonslabs:melon_slab", MELON_SLAB);
+        Registry.register(Registry.ITEM, "melonslabs:carved_melon_slab", CARVED_MELON_SLAB);
+        Registry.register(Registry.ITEM, "melonslabs:jill_o_slab", JILL_O_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_stairs", PUMPKIN_STAIRS);
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_slab", PUMPKIN_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:carved_pumpkin_slab", CARVED_PUMPKIN_SLAB);
