@@ -40,7 +40,7 @@ public class MelonSlab extends SlabBlock{
                 Boolean waterlogged = state.get(WATERLOGGED);
                 SlabType slabType = (SlabType)state.get(TYPE);
 
-                Integer itemNum = slabType == slabType.DOUBLE ? 4 : 3;
+                Integer itemNum = (slabType == SlabType.DOUBLE) ? 4 : 3;
 
                 Direction direction = hit.getSide();
                 Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
