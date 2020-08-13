@@ -48,7 +48,7 @@ public class JackOSlab extends SlabBlock{
         if (blockState.isOf(this)) {
             return (BlockState)((BlockState)blockState.with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false).with(FACING, ctx.getPlayerFacing().getOpposite());
         } else if(blockState.isOf(MelonSlabs.CARVED_PUMPKIN_SLAB_BLOCK)){
-            return (BlockState)((BlockState)MelonSlabs.JACK_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false).with(FACING, ctx.getPlayerFacing().getOpposite());
+            return (BlockState)((BlockState)MelonSlabs.JACK_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false).with(FACING, blockState.get(FACING));
         } else {
             BlockState blockState2 = (BlockState)((BlockState)this.getDefaultState().with(TYPE, SlabType.BOTTOM)).with(WATERLOGGED, false).with(FACING, ctx.getPlayerFacing().getOpposite());
             Direction direction = ctx.getSide();
@@ -60,7 +60,7 @@ public class JackOSlab extends SlabBlock{
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
         ItemStack itemStack = context.getStack();
         SlabType slabType = (SlabType)state.get(TYPE);
-        if (slabType != SlabType.DOUBLE && (itemStack.getItem() == this.asItem() || itemStack.getItem() == MelonSlabs.CARVED_PUMPKIN_SLAB.asItem())) {
+        if (slabType != SlabType.DOUBLE && itemStack.getItem() == MelonSlabs.CARVED_PUMPKIN_SLAB.asItem()) {
            if (context.canReplaceExisting()) {
               boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5D;
               Direction direction = context.getSide();
@@ -97,10 +97,10 @@ public class JackOSlab extends SlabBlock{
         if (state.get(WATERLOGGED)){
             world.setBlockState(pos, MelonSlabs.CARVED_PUMPKIN_SLAB_BLOCK.getDefaultState().with(FACING, state.get(FACING)).with(WATERLOGGED, true).with(TYPE,state.get(TYPE)));
 
-            Direction direction2 = state.get(TYPE) == SlabType.BOTTOM ? Direction.UP : Direction.DOWN;
+            boolean up = (state.get(TYPE) == SlabType.TOP);
 
-            ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D + (double)direction2.getOffsetX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction2.getOffsetZ() * 0.65D, new ItemStack(Items.TORCH, 1));
-            itemEntity.setVelocity(0.05D * (double)direction2.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction2.getOffsetZ() + world.random.nextDouble() * 0.02D);
+            ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D, (double)pos.getY() + (up ? 0.1D : 0.7D), (double)pos.getZ() + 0.5D , new ItemStack(Items.TORCH, 1));            itemEntity.setVelocity(world.random.nextDouble() * 0.02D, 0.05D, world.random.nextDouble() * 0.02D);
+            itemEntity.setVelocity(world.random.nextDouble() * 0.02D, up ? -0.1D : 0.05D, world.random.nextDouble() * 0.02D);
             world.spawnEntity(itemEntity);
         }
     }

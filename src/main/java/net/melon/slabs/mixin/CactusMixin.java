@@ -33,14 +33,19 @@ public abstract class CactusMixin extends Block{
          int i;
          for(i = 1; world.getBlockState(pos.down(i)).isOf(this); ++i) {
          }
-
          if (i < 4) {
             int j = (Integer)state.get(AGE);
             if (j >= 7) {
+               boolean placeAble = canPlaceAt(state, world, blockPos);
+
                world.setBlockState(blockPos, MelonSlabs.CACTUS_SLAB_BLOCK.getDefaultState());
                BlockState blockState = (BlockState)state.with(AGE, 0);
                world.setBlockState(pos, blockState, 4);
                blockState.neighborUpdate(world, blockPos, this, pos, false);
+               System.out.println(placeAble);
+               if (!placeAble){
+                  world.breakBlock(blockPos, true);
+               }
             } else {
                world.setBlockState(pos, (BlockState)state.with(AGE, j + 1), 4);
             }
