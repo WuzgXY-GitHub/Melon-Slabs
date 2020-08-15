@@ -10,6 +10,7 @@ import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
@@ -57,4 +58,26 @@ public class PumpkinSlab extends SlabBlock{
            return super.onUse(state, world, pos, player, hand, hit);
         }
     }
+
+    @Override
+    //the same as default but allows replacement by melon slabs (to make frankenmelons)
+    public boolean canReplace(BlockState state, ItemPlacementContext context) {
+        ItemStack itemStack = context.getStack();
+        SlabType slabType = (SlabType)state.get(TYPE);
+        if (slabType != SlabType.DOUBLE && (itemStack.getItem() == this.asItem() || (itemStack.getItem() == MelonSlabs.MELON_SLAB.asItem() && slabType == SlabType.BOTTOM))) {
+           if (context.canReplaceExisting()) {
+              boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5D;
+              Direction direction = context.getSide();
+              if (slabType == SlabType.BOTTOM) {
+                 return direction == Direction.UP || bl && direction.getAxis().isHorizontal();
+              } else {
+                 return direction == Direction.DOWN || !bl && direction.getAxis().isHorizontal();
+              }
+           } else {
+              return true;
+           }
+        } else {
+           return false;
+        }
+     }
 }

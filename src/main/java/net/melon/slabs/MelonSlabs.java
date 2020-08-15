@@ -14,18 +14,22 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class MelonSlabs implements ModInitializer {
+    //mod id
+    public static final String MOD_ID = "melonslabs";
+
     //Blocks
     private static final Block MELON_SLAB_BLOCK = new MelonSlab();
     public static final Block JILL_O_LANTERN_BLOCK = new JillOLantern();
     public static final Block CARVED_MELON_BLOCK = new CarvedMelon();
     public static final Block CARVED_MELON_SLAB_BLOCK = new CarvedMelonSlab();
     public static final Block JILL_O_SLAB_BLOCK = new JillOSlab();
-    private static final Block PUMPKIN_SLAB_BLOCK = new PumpkinSlab();
+    public static final Block PUMPKIN_SLAB_BLOCK = new PumpkinSlab();
     public static final Block CARVED_PUMPKIN_SLAB_BLOCK = new CarvedPumpkinSlab();
     public static final Block JACK_O_SLAB_BLOCK = new JackOSlab();
     private static final Block PUMPKIN_STAIRS_BLOCK = new PumpkinStairs();
     public static final Block CACTUS_SLAB_BLOCK = new CactusSlab();
     public static final Block MELON_STAIRS_BLOCK = new MelonStairs();
+    public static final Block FRANKENMELON_BLOCK = new FrankenMelon();
 
     //Item group
     private static final ItemGroup GROUP = FabricItemGroupBuilder.build(new Identifier("melonslabs", "group"), () -> new ItemStack(MelonSlabs.MELON_SLAB));
@@ -44,11 +48,14 @@ public class MelonSlabs implements ModInitializer {
     public static final Item JACK_O_SLAB = new BlockItem(JACK_O_SLAB_BLOCK, new Item.Settings().group(GROUP));
     public static final Item PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).snack().build()));
     public static final Item COOKED_PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(2.4f).build()));
+    public static final Item FRANKENMELON = new BlockItem(FRANKENMELON_BLOCK, new Item.Settings().group(GROUP));
 
 
     @Override
     public void onInitialize() {
+        MelonSlabsCriteria.loadClass();
         // System.out.println(FabricLoader.getInstance().getAllMods());
+        System.out.println(FRANKENMELON_BLOCK.hasRandomTicks(FRANKENMELON_BLOCK.getDefaultState()));
 
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.CACTUS_SLAB_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.JACK_O_SLAB_BLOCK, RenderLayer.getCutout());
@@ -65,6 +72,7 @@ public class MelonSlabs implements ModInitializer {
         Registry.register(Registry.BLOCK, "melonslabs:pumpkin_slab", PUMPKIN_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:carved_pumpkin_slab", CARVED_PUMPKIN_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:jack_o_slab", JACK_O_SLAB_BLOCK);
+        Registry.register(Registry.BLOCK, "melonslabs:frankenmelon", FRANKENMELON_BLOCK);
         
         Registry.register(Registry.ITEM, "melonslabs:cactus_slab", CACTUS_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:jill_o_lantern", JILL_O_LANTERN);
@@ -79,6 +87,7 @@ public class MelonSlabs implements ModInitializer {
         Registry.register(Registry.ITEM, "melonslabs:jack_o_slab", JACK_O_SLAB);
         Registry.register(Registry.ITEM, "melonslabs:pumpkin_slice", PUMPKIN_SLICE);
         Registry.register(Registry.ITEM, "melonslabs:cooked_pumpkin_slice", COOKED_PUMPKIN_SLICE);
+        Registry.register(Registry.ITEM, "melonslabs:frankenmelon", FRANKENMELON);
     }
     
 }

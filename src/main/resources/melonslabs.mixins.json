@@ -5,7 +5,9 @@
     "compatibilityLevel": "JAVA_8",
     "mixins": ["ComposterMixin",
       "CactusMixin",
-      "MelonMixin"
+      "MelonMixin",
+      "TridentMixin",
+      "CriteriaMixin"
     ],
     "client": [],
     "server": [],

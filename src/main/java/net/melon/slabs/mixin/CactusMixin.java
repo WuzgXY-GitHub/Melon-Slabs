@@ -42,7 +42,6 @@ public abstract class CactusMixin extends Block{
                BlockState blockState = (BlockState)state.with(AGE, 0);
                world.setBlockState(pos, blockState, 4);
                blockState.neighborUpdate(world, blockPos, this, pos, false);
-               System.out.println(placeAble);
                if (!placeAble){
                   world.breakBlock(blockPos, true);
                }
