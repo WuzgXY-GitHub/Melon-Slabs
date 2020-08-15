@@ -15,6 +15,6 @@
     "item.melonslabs.cooked_pumpkin_slice": "Cooked Pumpkin Slice",
     "advancements.melonslabs.frankenmelon.title": "The Spark Of Life",
     "advancements.melonslabs.frankenmelon.description": "Create a frankenmelon by channeling life into a half pumpkin half melon block.",
-    "block.melonslabs.frankenmelon": "Frankenmelon"
-
+    "block.melonslabs.frankenmelon": "Frankenmelon",
+    "subtitles.melonslabs.frankenmelon_hurt": "Frankenmelon gets hurt"
 }

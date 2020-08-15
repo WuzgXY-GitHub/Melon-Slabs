@@ -125,7 +125,7 @@ public class FrankenMelon extends Block{
 
     @Override
     public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-        if (!world.isClient) {
+        if (!world.isClient && state.get(LIT)) {
             world.playSound(null, pos, MelonSlabs.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.25f, 1f);
         }
         super.onBlockBreakStart(state, world, pos, player);
