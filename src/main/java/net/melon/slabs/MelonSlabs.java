@@ -10,12 +10,17 @@ import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class MelonSlabs implements ModInitializer {
     //mod id
     public static final String MOD_ID = "melonslabs";
+
+    //sounds
+    public static SoundEvent FRANKENMELON_HURT_EVENT = new SoundEvent(new Identifier("melonslabs:frankenmelon_hurt"));
+
 
     //Blocks
     private static final Block MELON_SLAB_BLOCK = new MelonSlab();
@@ -61,6 +66,8 @@ public class MelonSlabs implements ModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.JACK_O_SLAB_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.JILL_O_SLAB_BLOCK, RenderLayer.getCutout());
         
+        Registry.register(Registry.SOUND_EVENT, "melonslabs:frankenmelon_hurt", FRANKENMELON_HURT_EVENT);
+
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:jill_o_lantern", JILL_O_LANTERN_BLOCK);
         Registry.register(Registry.BLOCK, "melonslabs:carved_melon", CARVED_MELON_BLOCK);

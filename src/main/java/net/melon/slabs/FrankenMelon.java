@@ -15,10 +15,12 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -119,6 +121,14 @@ public class FrankenMelon extends Block{
     private boolean canTeleportInto (BlockPos pos, ServerWorld world){
         BlockState blockState = world.getBlockState(pos.down());
         return (blockState.getMaterial().isSolid() && blockState.isFullCube(world, pos) && (world.isAir(pos) || world.getBlockState(pos).getMaterial().isReplaceable()));
+    }
+
+    @Override
+    public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
+        if (!world.isClient) {
+            world.playSound(null, pos, MelonSlabs.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.25f, 1f);
+        }
+        super.onBlockBreakStart(state, world, pos, player);
     }
 
     static{
