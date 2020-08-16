@@ -52,7 +52,7 @@ public class MelonMixin extends Block{
                 world.setBlockState(pos, (BlockState)MelonSlabsBlocks.CARVED_MELON.getDefaultState().with(CarvedMelon.FACING, direction2), 11);
                 ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D + (double)direction2.getOffsetX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction2.getOffsetZ() * 0.65D, new ItemStack(Items.MELON_SEEDS, itemNum));
                 itemEntity.setVelocity(0.05D * (double)direction2.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction2.getOffsetZ() + world.random.nextDouble() * 0.02D);
-                world.spawnEntity(itemEntity);
+                world.spawnEntity(itemEntity);//hi
             }
   
            return ActionResult.success(world.isClient);
