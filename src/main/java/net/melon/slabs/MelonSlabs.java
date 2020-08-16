@@ -59,10 +59,9 @@ public class MelonSlabs implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // new AdvancementsScreen().onRootAdded(MelonSlabsCriteria.ROOT_ADVANCEMENT);
 
         MelonSlabsCriteria.loadClass();
-        // System.out.println(FabricLoader.getInstance().getAllMods());
+
         System.out.println(FRANKENMELON_BLOCK.hasRandomTicks(FRANKENMELON_BLOCK.getDefaultState()));
 
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabs.CACTUS_SLAB_BLOCK, RenderLayer.getCutout());

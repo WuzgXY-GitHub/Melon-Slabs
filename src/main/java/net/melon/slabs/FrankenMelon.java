@@ -56,8 +56,8 @@ public class FrankenMelon extends Block{
     @Override
     //makes it light when lightning
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity){
-        if (!state.get(LIT)){
-            if (!world.isClient()){
+        if (!world.isClient()){
+            if (!state.get(LIT)){
                 if (entity instanceof net.minecraft.entity.projectile.TridentEntity){
                     if (world.isThundering() && EnchantmentHelper.hasChanneling(((TridentMixin) entity).getTridentStack()) && world.isSkyVisible(pos.up())){
                         world.setBlockState(pos, state.with(LIT, true).with(FACING, this.getRandomDirection()));
@@ -71,6 +71,9 @@ public class FrankenMelon extends Block{
                         world.spawnEntity(lightningEntity);
                     }
                 }
+            } else if (entity instanceof net.minecraft.entity.projectile.ProjectileEntity){
+                Random rd = new Random();
+                world.playSound(null, pos, MelonSlabs.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.2f + rd.nextFloat()/10f, 0.8f + + rd.nextFloat()/2.5f);
             }
         }
         super.onEntityCollision(state, world, pos, entity);
@@ -126,7 +129,8 @@ public class FrankenMelon extends Block{
     @Override
     public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
         if (!world.isClient && state.get(LIT)) {
-            world.playSound(null, pos, MelonSlabs.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.25f, 1f);
+            Random rd = new Random();
+            world.playSound(null, pos, MelonSlabs.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.2f + rd.nextFloat()/10f, 0.8f + + rd.nextFloat()/2.5f);
         }
         super.onBlockBreakStart(state, world, pos, player);
     }
