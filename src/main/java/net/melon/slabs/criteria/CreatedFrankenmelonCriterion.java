@@ -1,4 +1,4 @@
-package net.melon.slabs;
+package net.melon.slabs.criteria;
 
 import com.google.gson.JsonObject;
 

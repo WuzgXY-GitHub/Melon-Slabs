@@ -1,4 +1,4 @@
-package net.melon.slabs;
+package net.melon.slabs.blocks;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 

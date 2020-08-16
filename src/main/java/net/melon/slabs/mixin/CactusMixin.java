@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-import net.melon.slabs.MelonSlabs;
+import net.melon.slabs.blocks.MelonSlabsBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CactusBlock;
@@ -38,7 +38,7 @@ public abstract class CactusMixin extends Block{
             if (j >= 7) {
                boolean placeAble = canPlaceAt(state, world, blockPos);
 
-               world.setBlockState(blockPos, MelonSlabs.CACTUS_SLAB_BLOCK.getDefaultState());
+               world.setBlockState(blockPos, MelonSlabsBlocks.CACTUS_SLAB.getDefaultState());
                BlockState blockState = (BlockState)state.with(AGE, 0);
                world.setBlockState(pos, blockState, 4);
                blockState.neighborUpdate(world, blockPos, this, pos, false);

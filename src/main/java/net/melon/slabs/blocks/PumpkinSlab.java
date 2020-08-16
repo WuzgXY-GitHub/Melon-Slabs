@@ -1,8 +1,9 @@
-package net.melon.slabs;
+package net.melon.slabs.blocks;
 
 import java.util.function.Consumer;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.melon.slabs.items.MelonSlabsItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -10,8 +11,6 @@ import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -24,12 +23,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class MelonSlab extends SlabBlock{
 
-    public MelonSlab() {
-        super(FabricBlockSettings.copy(Blocks.MELON));
+public class PumpkinSlab extends SlabBlock{
+
+    public PumpkinSlab() {
+        super(FabricBlockSettings.copy(Blocks.PUMPKIN));
     }
     
+    @SuppressWarnings("all")
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.getItem() == Items.SHEARS) {
@@ -48,8 +49,8 @@ public class MelonSlab extends SlabBlock{
                 Direction direction = hit.getSide();
                 Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
                 world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                world.setBlockState(pos, (BlockState)MelonSlabs.CARVED_MELON_SLAB_BLOCK.getDefaultState().with(CarvedMelonSlab.FACING, direction2).with(TYPE, slabType).with(WATERLOGGED, waterlogged), 11);
-                ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D + (double)direction2.getOffsetX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction2.getOffsetZ() * 0.65D, new ItemStack(Items.MELON_SEEDS, itemNum));
+                world.setBlockState(pos, (BlockState)MelonSlabsBlocks.CARVED_PUMPKIN_SLAB.getDefaultState().with(CarvedPumpkinSlab.FACING, direction2).with(TYPE, slabType).with(WATERLOGGED, waterlogged), 11);
+                ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D + (double)direction2.getOffsetX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction2.getOffsetZ() * 0.65D, new ItemStack(Items.PUMPKIN_SEEDS, itemNum));
                 itemEntity.setVelocity(0.05D * (double)direction2.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction2.getOffsetZ() + world.random.nextDouble() * 0.02D);
                 world.spawnEntity(itemEntity);
             }
@@ -60,19 +61,25 @@ public class MelonSlab extends SlabBlock{
         }
     }
 
-    //default but edited to allow frankenmelons if placed on a pumpkin slab
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockPos blockPos = ctx.getBlockPos();
-        BlockState blockState = ctx.getWorld().getBlockState(blockPos);
-        if (blockState.isOf(this)) {
-           return (BlockState)((BlockState)blockState.with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
-        } else if (blockState.isOf(MelonSlabs.PUMPKIN_SLAB_BLOCK)){
-            return (MelonSlabs.FRANKENMELON_BLOCK.getDefaultState().with(FrankenMelon.LIT, false));
+    @Override
+    //the same as default but allows replacement by melon slabs (to make frankenmelons)
+    public boolean canReplace(BlockState state, ItemPlacementContext context) {
+        ItemStack itemStack = context.getStack();
+        SlabType slabType = (SlabType)state.get(TYPE);
+        if (slabType != SlabType.DOUBLE && (itemStack.getItem() == this.asItem() || (itemStack.getItem() == MelonSlabsItems.MELON_SLAB.asItem() && slabType == SlabType.BOTTOM))) {
+           if (context.canReplaceExisting()) {
+              boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5D;
+              Direction direction = context.getSide();
+              if (slabType == SlabType.BOTTOM) {
+                 return direction == Direction.UP || bl && direction.getAxis().isHorizontal();
+              } else {
+                 return direction == Direction.DOWN || !bl && direction.getAxis().isHorizontal();
+              }
+           } else {
+              return true;
+           }
         } else {
-           FluidState fluidState = ctx.getWorld().getFluidState(blockPos);
-           BlockState blockState2 = (BlockState)((BlockState)this.getDefaultState().with(TYPE, SlabType.BOTTOM)).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
-           Direction direction = ctx.getSide();
-           return direction != Direction.DOWN && (direction == Direction.UP || ctx.getHitPos().y - (double)blockPos.getY() <= 0.5D) ? blockState2 : (BlockState)blockState2.with(TYPE, SlabType.TOP);
+           return false;
         }
      }
 }

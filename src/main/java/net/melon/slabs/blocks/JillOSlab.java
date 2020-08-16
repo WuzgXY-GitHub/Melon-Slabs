@@ -1,4 +1,4 @@
-package net.melon.slabs;
+package net.melon.slabs.blocks;
 
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
@@ -19,6 +19,7 @@ import java.util.Random;
 
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.melon.slabs.items.MelonSlabsItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -48,8 +49,8 @@ public class JillOSlab extends SlabBlock{
         BlockState blockState = ctx.getWorld().getBlockState(blockPos);
         if (blockState.isOf(this)) {
             return (BlockState)((BlockState)blockState.with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
-        } else if (blockState.isOf(MelonSlabs.CARVED_MELON_SLAB_BLOCK)){
-            return (BlockState)((BlockState)MelonSlabs.JILL_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
+        } else if (blockState.isOf(MelonSlabsBlocks.CARVED_MELON_SLAB)){
+            return (BlockState)((BlockState)MelonSlabsBlocks.JILL_O_SLAB.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
         } else {
             BlockState blockState2 = (BlockState)((BlockState)this.getDefaultState().with(TYPE, SlabType.BOTTOM)).with(WATERLOGGED, false).with(FACING, ctx.getPlayerFacing().getOpposite());
             Direction direction = ctx.getSide();
@@ -61,7 +62,7 @@ public class JillOSlab extends SlabBlock{
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
         ItemStack itemStack = context.getStack();
         SlabType slabType = (SlabType)state.get(TYPE);
-        if (slabType != SlabType.DOUBLE && itemStack.getItem() == MelonSlabs.CARVED_MELON_SLAB.asItem()) {
+        if (slabType != SlabType.DOUBLE && itemStack.getItem() == MelonSlabsItems.CARVED_MELON_SLAB.asItem()) {
            if (context.canReplaceExisting()) {
               boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5D;
               Direction direction = context.getSide();
@@ -96,7 +97,7 @@ public class JillOSlab extends SlabBlock{
 
     public void update (BlockState state, World world, BlockPos pos){
         if (state.get(WATERLOGGED)){
-            world.setBlockState(pos, MelonSlabs.CARVED_MELON_SLAB_BLOCK.getDefaultState().with(FACING, state.get(FACING)).with(WATERLOGGED, true).with(TYPE,state.get(TYPE)));
+            world.setBlockState(pos, MelonSlabsBlocks.CARVED_MELON_SLAB.getDefaultState().with(FACING, state.get(FACING)).with(WATERLOGGED, true).with(TYPE,state.get(TYPE)));
 
             boolean up = (state.get(TYPE) == SlabType.TOP);
 

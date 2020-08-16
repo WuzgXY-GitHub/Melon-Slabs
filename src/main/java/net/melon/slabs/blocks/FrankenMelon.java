@@ -1,4 +1,4 @@
-package net.melon.slabs;
+package net.melon.slabs.blocks;
 
 
 import java.util.ArrayList;
@@ -6,7 +6,9 @@ import java.util.Random;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.melon.slabs.criteria.MelonSlabsCriteria;
 import net.melon.slabs.mixin.TridentMixin;
+import net.melon.slabs.sounds.MelonSlabsSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -72,8 +74,7 @@ public class FrankenMelon extends Block{
                     }
                 }
             } else if (entity instanceof net.minecraft.entity.projectile.ProjectileEntity){
-                Random rd = new Random();
-                world.playSound(null, pos, MelonSlabs.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.2f + rd.nextFloat()/10f, 0.8f + + rd.nextFloat()/2.5f);
+                this.getHurt(state, world, pos);
             }
         }
         super.onEntityCollision(state, world, pos, entity);
@@ -128,11 +129,16 @@ public class FrankenMelon extends Block{
 
     @Override
     public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
+        this.getHurt(state, world, pos);
+        super.onBlockBreakStart(state, world, pos, player);
+    }
+
+    //makes the sound of the frankenmelon getting hurt
+    private void getHurt (BlockState state, World world, BlockPos pos){
         if (!world.isClient && state.get(LIT)) {
             Random rd = new Random();
-            world.playSound(null, pos, MelonSlabs.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.2f + rd.nextFloat()/10f, 0.8f + + rd.nextFloat()/2.5f);
+            world.playSound(null, pos, MelonSlabsSounds.FRANKENMELON_HURT_EVENT, SoundCategory.BLOCKS, 0.2f + rd.nextFloat()/10f, 0.8f + + rd.nextFloat()/2.5f);
         }
-        super.onBlockBreakStart(state, world, pos, player);
     }
 
     static{

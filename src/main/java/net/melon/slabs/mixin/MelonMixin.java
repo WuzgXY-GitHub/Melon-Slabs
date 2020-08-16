@@ -23,8 +23,8 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.melon.slabs.CarvedMelon;
-import net.melon.slabs.MelonSlabs;
+import net.melon.slabs.blocks.CarvedMelon;
+import net.melon.slabs.blocks.MelonSlabsBlocks;
 
 @Mixin(MelonBlock.class)
 public class MelonMixin extends Block{
@@ -33,6 +33,7 @@ public class MelonMixin extends Block{
         super(FabricBlockSettings.copy(Blocks.MELON));
     }
 
+    @SuppressWarnings("all")
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.getItem() == Items.SHEARS) {
@@ -48,7 +49,7 @@ public class MelonMixin extends Block{
                 Direction direction = hit.getSide();
                 Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
                 world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                world.setBlockState(pos, (BlockState)MelonSlabs.CARVED_MELON_BLOCK.getDefaultState().with(CarvedMelon.FACING, direction2), 11);
+                world.setBlockState(pos, (BlockState)MelonSlabsBlocks.CARVED_MELON.getDefaultState().with(CarvedMelon.FACING, direction2), 11);
                 ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D + (double)direction2.getOffsetX() * 0.65D, (double)pos.getY() + 0.1D, (double)pos.getZ() + 0.5D + (double)direction2.getOffsetZ() * 0.65D, new ItemStack(Items.MELON_SEEDS, itemNum));
                 itemEntity.setVelocity(0.05D * (double)direction2.getOffsetX() + world.random.nextDouble() * 0.02D, 0.05D, 0.05D * (double)direction2.getOffsetZ() + world.random.nextDouble() * 0.02D);
                 world.spawnEntity(itemEntity);

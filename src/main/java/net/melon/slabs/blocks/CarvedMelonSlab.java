@@ -1,4 +1,4 @@
-package net.melon.slabs;
+package net.melon.slabs.blocks;
 
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.melon.slabs.items.MelonSlabsItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -41,8 +42,8 @@ public class CarvedMelonSlab extends SlabBlock{
         BlockState blockState = ctx.getWorld().getBlockState(blockPos);
         if (blockState.isOf(this)) {
             return (BlockState)((BlockState)blockState.with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
-        } else if (blockState.isOf(MelonSlabs.JILL_O_SLAB_BLOCK)){
-            return (BlockState)((BlockState)MelonSlabs.JILL_O_SLAB_BLOCK.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
+        } else if (blockState.isOf(MelonSlabsBlocks.JILL_O_SLAB)){
+            return (BlockState)((BlockState)MelonSlabsBlocks.JILL_O_SLAB.getDefaultState().with(FACING, blockState.get(FACING)).with(TYPE, SlabType.DOUBLE)).with(WATERLOGGED, false);
         } else {
             FluidState fluidState = ctx.getWorld().getFluidState(blockPos);
             BlockState blockState2 = (BlockState)((BlockState)this.getDefaultState().with(TYPE, SlabType.BOTTOM)).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER).with(FACING, ctx.getPlayerFacing().getOpposite());
@@ -57,7 +58,7 @@ public class CarvedMelonSlab extends SlabBlock{
 
             SlabType slabType = (SlabType)state.get(TYPE);
 
-            world.setBlockState(pos, (BlockState)(MelonSlabs.JILL_O_SLAB_BLOCK.getDefaultState().with(FACING, state.get(FACING)).with(TYPE, slabType)).with(WATERLOGGED, false));
+            world.setBlockState(pos, (BlockState)(MelonSlabsBlocks.JILL_O_SLAB.getDefaultState().with(FACING, state.get(FACING)).with(TYPE, slabType)).with(WATERLOGGED, false));
             
             if (!player.abilities.creativeMode){
                 itemStack.decrement(1);
@@ -74,7 +75,7 @@ public class CarvedMelonSlab extends SlabBlock{
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
         ItemStack itemStack = context.getStack();
         SlabType slabType = (SlabType)state.get(TYPE);
-        if (slabType != SlabType.DOUBLE && (itemStack.getItem() == this.asItem() || itemStack.getItem() == MelonSlabs.JILL_O_SLAB.asItem())) {
+        if (slabType != SlabType.DOUBLE && (itemStack.getItem() == this.asItem() || itemStack.getItem() == MelonSlabsItems.JILL_O_SLAB.asItem())) {
            if (context.canReplaceExisting()) {
               boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5D;
               Direction direction = context.getSide();
