@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:adventure/root",
   "display": {
     "icon": {
       "item": "melonslabs:frankenmelon"
@@ -13,10 +12,11 @@
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
-    "hidden": false
+    "hidden": false,
+    "background": "melonslabs:textures/gui/advancements/backgrounds/the_spark_of_life.png"
   },
   "rewards": {
-    "item": "minecraft:book"
+    "loot": ["melonslabs:advancements/created_frankenmelon"]
   },
   "criteria": {
       "created_frankenmelon": {

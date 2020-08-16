@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.screen.advancement.AdvancementsScreen;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
@@ -58,6 +59,8 @@ public class MelonSlabs implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        // new AdvancementsScreen().onRootAdded(MelonSlabsCriteria.ROOT_ADVANCEMENT);
+
         MelonSlabsCriteria.loadClass();
         // System.out.println(FabricLoader.getInstance().getAllMods());
         System.out.println(FRANKENMELON_BLOCK.hasRandomTicks(FRANKENMELON_BLOCK.getDefaultState()));

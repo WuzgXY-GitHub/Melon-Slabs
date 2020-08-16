@@ -38,6 +38,10 @@ public class CreatedFrankenmelonCriterion extends AbstractCriterion<CreatedFrank
             return new CreatedFrankenmelonCriterion.Conditions(id, entityPredicate);
         }
 
+        public static CreatedFrankenmelonCriterion.Conditions create(Identifier id) {
+            return new CreatedFrankenmelonCriterion.Conditions(id, EntityPredicate.Extended.EMPTY);
+         }
+
         public boolean matches(Boolean input) {
             return input;
         }

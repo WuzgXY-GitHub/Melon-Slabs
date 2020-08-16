@@ -25,7 +25,7 @@
     },
     "requirements": [
       [
-        "has_carved_melon_slab",
+        "has_carved_pumpkin_slab",
         "has_the_recipe"
       ]
     ]
