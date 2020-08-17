@@ -1,0 +1,14 @@
+{
+	"name": "text.melonslabs.materials.iron.title",
+	"icon": "minecraft:iron_block",
+	"category": "materials",
+	"sortnum": 0,
+	"pages": [
+		{
+			"type": "spotlight",
+			"item": "minecraft:iron_block",
+			"title": "text.melonslabs.materials.iron.page_one.title",
+			"text": "text.melonslabs.materials.iron.page_one.text"
+		}
+	]
+}

@@ -1,6 +1,6 @@
 {
 	"name": "text.melonslabs.patchouli.golem_types.title",
 	"description": "text.melonslabs.patchouli.golem_types.description",
-	"icon": "minecraft:iron_block",
+	"icon": "melonslabs:frankenmelon",
 	"sortnum": 2
 }
