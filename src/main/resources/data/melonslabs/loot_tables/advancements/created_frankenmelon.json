@@ -5,7 +5,13 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "minecraft:book"
+            "name": "patchouli:guide_book",
+            "functions" :[
+              {
+                "function":"minecraft:set_nbt",
+                "tag":"{\"patchouli:book\":\"melonslabs:handbook\"}"
+              }
+            ]
           }
         ]
       }
