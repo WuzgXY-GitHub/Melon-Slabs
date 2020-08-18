@@ -1,0 +1,22 @@
+{
+    "components":[
+        {
+            "type": "header",
+            "text": "text.melonslabs.patchouli.materials.arm",
+            "x": 0,
+            "y": 50,
+            "centered":false
+        }
+    ],
+    "include":[
+        {
+            "template":"melonslabs_spotlight",
+            "as":"material-spotlight",
+            "using":{
+                "item":"#item",
+                "title": "#title",
+			    "text": ""
+            }
+        }
+    ]
+}

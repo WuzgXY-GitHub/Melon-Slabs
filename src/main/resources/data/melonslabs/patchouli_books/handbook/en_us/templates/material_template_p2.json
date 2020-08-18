@@ -1,0 +1,11 @@
+{
+    "components":[
+        {
+            "type": "header",
+            "text": "text.melonslabs.patchouli.materials.leg",
+            "x": 0,
+            "y": 0,
+            "centered":false
+        }
+    ]
+}

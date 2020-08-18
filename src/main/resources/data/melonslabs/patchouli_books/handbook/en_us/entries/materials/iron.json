@@ -1,14 +1,16 @@
 {
-	"name": "text.melonslabs.materials.iron.title",
+	"name": "text.melonslabs.patchouli.materials.iron.title",
 	"icon": "minecraft:iron_block",
 	"category": "materials",
 	"sortnum": 0,
 	"pages": [
 		{
-			"type": "spotlight",
-			"item": "minecraft:iron_block",
-			"title": "text.melonslabs.materials.iron.page_one.title",
-			"text": "text.melonslabs.materials.iron.page_one.text"
+            "type":"melonslabs:material_template",
+            "item":"minecraft:iron_block",
+            "title":"Iron"
+		},
+		{
+            "type":"melonslabs:material_template_p2"
 		}
 	]
 }
