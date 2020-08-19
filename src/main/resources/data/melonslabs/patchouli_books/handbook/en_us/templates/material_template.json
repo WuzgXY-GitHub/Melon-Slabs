@@ -2,10 +2,122 @@
     "components":[
         {
             "type": "header",
-            "text": "text.melonslabs.patchouli.materials.arm",
+            "text": "text.melonslabs.patchouli.materials.leg",
             "x": 0,
-            "y": 50,
+            "y": 60,
             "centered":false
+        },
+        {
+            "type": "text",
+            "text": "§lJump height:",
+            "y": 75
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/jump_scale.png",
+            "x": 52,
+            "y": 75,
+            "width": "#jump_width",
+            "height": 8,
+            "texture_width": 64,
+            "texture_height": 8
+        },
+        {
+            "type": "text",
+            "text": "§lCarry weight:",
+            "y": 90
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/weight_thin.png",
+            "x": 57,
+            "y": 84,
+            "width": 16,
+            "height": 16,
+            "texture_width": 16,
+            "texture_height": 16,
+            "guard":"#carry_weight_thin"
+        },
+        {
+            "type": "header",
+            "text": "#carry_weight",
+            "y": 91,
+            "x": 65,
+            "color":"FFFFFF",
+            "centered":true,
+            "scale":0.7,
+            "guard":"#carry_weight_thin"
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/weight.png",
+            "x": 57,
+            "y": 84,
+            "width": 32,
+            "height": 16,
+            "texture_width": 32,
+            "texture_height": 16,
+            "guard":"#carry_weight_thick"
+        },
+        {
+            "type": "header",
+            "text": "#carry_weight",
+            "y": 91,
+            "x": 73,
+            "color":"FFFFFF",
+            "centered":true,
+            "scale":0.7,
+            "guard":"#carry_weight_thick"
+        },
+        {
+            "type": "text",
+            "text": "§lMove speeed:",
+            "y": 105
+        },
+        {
+            "type": "text",
+            "text": "#move_speed",
+            "y": 105,
+            "x": 55
+        },
+        {
+            "type": "text",
+            "text": "§lHP:",
+            "y": 120
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/hearts.png",
+            "x": 14,
+            "y": 120,
+            "width": "#leg_hp_width",
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8
+        },
+        {
+            "type": "text",
+            "text": "§lWeight:",
+            "y": 135
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/weight_thin.png",
+            "x": 29,
+            "y": 129,
+            "width": 16,
+            "height": 16,
+            "texture_width": 16,
+            "texture_height": 16
+        },
+        {
+            "type": "header",
+            "text": "#leg_weight",
+            "y": 136,
+            "x": 37,
+            "color":"FFFFFF",
+            "centered":true,
+            "scale":0.7
         }
     ],
     "include":[

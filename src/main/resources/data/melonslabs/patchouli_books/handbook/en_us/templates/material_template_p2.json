@@ -2,10 +2,260 @@
     "components":[
         {
             "type": "header",
-            "text": "text.melonslabs.patchouli.materials.leg",
+            "text": "text.melonslabs.patchouli.materials.arm",
             "x": 0,
             "y": 0,
             "centered":false
+        },
+        {
+            "type": "text",
+            "text": "§lAttack dmg:",
+            "y": 15
+        },
+        {
+            "type": "header",
+            "text": "§l0",
+            "color": "000000",
+            "y": 17,
+            "centered": false,
+            "x": 48,
+            "guard": "#no_attack",
+            "scale": 0.7
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/hearts.png",
+            "x": 48,
+            "y": 15,
+            "width": "#attack_width",
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8
+        },
+        {
+            "type": "text",
+            "text": "§lAttack delay:",
+            "y": 30
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/seconds.png",
+            "x": 56,
+            "y": 26,
+            "width": 17,
+            "height": 17,
+            "texture_width": 17,
+            "texture_height": 17
+        },
+        {
+            "type": "header",
+            "text": "#attack_delay",
+            "x": 65,
+            "y": 32,
+            "color":"000000",
+            "centered":true,
+            "scale":0.7
+        },
+        {
+            "type": "text",
+            "text": "§lHP:",
+            "y": 45
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/hearts.png",
+            "x": 14,
+            "y": 45,
+            "width": "#arm_hp_width",
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8
+        },
+        {
+            "type": "text",
+            "text": "§lWeight:",
+            "y": 60
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/weight_thin.png",
+            "x": 29,
+            "y": 54,
+            "width": 16,
+            "height": 16,
+            "texture_width": 16,
+            "texture_height": 16
+        },
+        {
+            "type": "header",
+            "text": "#arm_weight",
+            "y": 61,
+            "x": 37,
+            "color":"FFFFFF",
+            "centered":true,
+            "scale":0.7
+        },
+        {
+            "type": "header",
+            "text": "text.melonslabs.patchouli.materials.torso",
+            "x": 0,
+            "y": 75,
+            "centered":false
+        },
+        {
+            "type": "text",
+            "text": "§lRegen:",
+            "y": 90
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/seconds.png",
+            "x": 41,
+            "y": 87,
+            "width": 15,
+            "height": 15,
+            "texture_width": 15,
+            "texture_height": 15
+        },
+        {
+            "type": "header",
+            "text": "/",
+            "y": 90,
+            "x": 34,
+            "centered":false
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/hearts.png",
+            "x": 27,
+            "y": 90,
+            "width": 5,
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8
+        },
+        {
+            "type": "header",
+            "text": "#regen_delay",
+            "y": 92,
+            "x": 49,
+            "color":"000000",
+            "centered":true,
+            "scale":0.7
+        },
+        {
+            "type": "text",
+            "text": "§lArmor:",
+            "y": 105
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/armor.png",
+            "x": 27,
+            "y": 105,
+            "width": "#armor_width",
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/armor.png",
+            "x": 27,
+            "y": 105,
+            "width": 9,
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8,
+            "guard":"#armor_long"
+        },
+        {
+            "type": "text",
+            "text": "§lx",
+            "y": 105,
+            "x": 38,
+            "guard": "#armor_long"
+        },
+        {
+            "type": "text",
+            "text": "#armor_width",
+            "y": 105,
+            "x": 43,
+            "guard": "#armor_long"
+        },
+        {
+            "type": "header",
+            "text": "§l0",
+            "color": "000000",
+            "y": 107,
+            "centered": false,
+            "x": 27,
+            "guard": "#no_armor",
+            "scale": 0.7
+        },
+        {
+            "type": "text",
+            "text": "§lHP:",
+            "y": 120
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/hearts.png",
+            "x": 14,
+            "y": 120,
+            "width": "#torso_hp_width",
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/hearts.png",
+            "x": 14,
+            "y": 120,
+            "width": 9,
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8,
+            "guard": "#torso_long_hp"
+        },
+        {
+            "type": "text",
+            "text": "§lx",
+            "y": 120,
+            "x": 25,
+            "guard": "#torso_long_hp"
+        },
+        {
+            "type": "text",
+            "text": "#torso_hp_width",
+            "y": 120,
+            "x": 30,
+            "guard": "#torso_long_hp"
+        },
+        {
+            "type": "text",
+            "text": "§lWeight:",
+            "y": 135
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/weight_thin.png",
+            "x": 29,
+            "y": 129,
+            "width": 16,
+            "height": 16,
+            "texture_width": 16,
+            "texture_height": 16
+        },
+        {
+            "type": "header",
+            "text": "#torso_weight",
+            "y": 136,
+            "x": 37,
+            "color":"FFFFFF",
+            "centered":true,
+            "scale":0.7
         }
     ]
 }

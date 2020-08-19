@@ -23,13 +23,17 @@
     "text.melonslabs.patchouli.golem_types.title":"Golem types",
     "text.melonslabs.patchouli.golem_types.description":"From guard to steed to companion, frankengolems come in all sorts of shapes and sizes (more coming soon).  This chapter is your guide to them all.",
     "text.melonslabs.patchouli.introduction.title":"Introduction",
-    "text.melonslabs.patchouli.introduction.description":"From slabs to golems to material properties, this chapter will teach you the foundation on which the art of golemancy lies",
+    "text.melonslabs.patchouli.introduction.description":"From slabs to golems to material properties, this chapter will teach you the foundation on which the art of golemancy lies.",
     "text.melonslabs.patchouli.materials.title":"Materials",
     "text.melonslabs.patchouli.materials.description":"Each material comes with unique properties, this chapter covers them all one by one.",
 
     "text.melonslabs.patchouli.materials.arm":"§nArm properties:",
+    "text.melonslabs.patchouli.materials.torso":"§nTorso properties:",
+    "text.melonslabs.patchouli.materials.base":"§nBase properties:",
     "text.melonslabs.patchouli.materials.leg":"§nLeg properties:",
 
     "text.melonslabs.patchouli.materials.iron.title":"Iron",
-    "text.melonslabs.patchouli.materials.gold.title":"Gold"
+    "text.melonslabs.patchouli.materials.gold.title":"Gold",
+    "text.melonslabs.patchouli.materials.slime.title":"Slime",
+    "text.melonslabs.patchouli.materials.diamond.title":"Diamond"
 }

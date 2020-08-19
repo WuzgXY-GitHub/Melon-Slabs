@@ -9,15 +9,13 @@
         },
         {
             "type": "image",
-            "image": "patchouli:textures/gui/crafting.png",
-            "x": 25,
-            "y": 10,
-            "u": 0,
-            "v": 102,
-            "width": 66,
-            "height": 26,
-            "texture_width": 128,
-            "texture_height": 256
+            "image": "melonslabs:textures/book/altar.png",
+            "x": -38,
+            "y": -6,
+            "width": 192,
+            "height": 96,
+            "texture_width": 192,
+            "texture_height": 96
         },
         {
             "type": "item",
@@ -25,7 +23,7 @@
             "link_recipe": true,
             "item":"#item",
             "x": 50,
-            "y": 15
+            "y": 10
         },
         {
             "type": "text",
