@@ -1,0 +1,32 @@
+{
+	"name": "text.melonslabs.patchouli.materials.red_mushroom.title",
+	"icon": "minecraft:red_mushroom_block",
+	"category": "materials",
+	"sortnum": 11,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:red_mushroom_block",
+			"title":"text.melonslabs.patchouli.materials.red_mushroom.title",
+			"jump_width":20,
+			"carry_weight":"§l10",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.5",
+			"leg_hp_width":15,
+			"leg_weight":"§l1½"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":15,
+			"attack_delay":"§l0.4",
+			"arm_hp_width":10,
+			"arm_weight":"§l0.75",
+			"arm_weight_thick":true,
+			"regen_delay":"§l3",
+			"armor_width":0,
+            "no_armor":true,
+			"torso_hp_width":25,
+			"torso_weight":"§l3"
+		}
+	]
+}

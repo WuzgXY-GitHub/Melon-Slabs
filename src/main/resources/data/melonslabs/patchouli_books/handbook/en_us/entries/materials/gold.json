@@ -2,7 +2,7 @@
 	"name": "text.melonslabs.patchouli.materials.gold.title",
 	"icon": "minecraft:gold_block",
 	"category": "materials",
-	"sortnum": 1,
+	"sortnum": 3,
 	"pages": [
 		{
             "type":"melonslabs:material_template",
@@ -21,6 +21,7 @@
 			"attack_delay":"§l0.5",
 			"arm_hp_width":60,
 			"arm_weight":"§l3¼",
+			"arm_weight_thin":true,
 			"regen_delay":"§l6",
 			"armor_width":55,
 			"torso_long_hp":true,

@@ -3,7 +3,7 @@ package net.melon.slabs.blocks;
 import java.util.function.Consumer;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.melon.slabs.guidebook.Test;
+import net.melon.slabs.guidebook.BookManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;

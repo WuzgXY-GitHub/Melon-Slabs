@@ -7,6 +7,7 @@ import java.util.Random;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.melon.slabs.criteria.MelonSlabsCriteria;
+import net.melon.slabs.guidebook.BookManager;
 import net.melon.slabs.mixin.TridentMixin;
 import net.melon.slabs.sounds.MelonSlabsSounds;
 import net.minecraft.block.Block;
@@ -16,9 +17,12 @@ import net.minecraft.block.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
@@ -27,6 +31,9 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -120,6 +127,24 @@ public class FrankenMelon extends Block{
         }
     }
 
+    //make it give guidebook when you right click with a book
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.getItem() == Items.BOOK) {
+            if (!world.isClient) {
+                if (!player.abilities.creativeMode){
+                    itemStack.decrement(1);
+                }
+                ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + 0.5D, (double)pos.getY() + 1.0D, (double)pos.getZ() + 0.5D, BookManager.getGuideBook());
+                itemEntity.setVelocity((world.random.nextDouble()-0.5d) * 0.5D, 0.5D,(world.random.nextDouble()-0.5d) * 0.5D);
+                world.spawnEntity(itemEntity);
+            }
+  
+           return ActionResult.success(world.isClient);
+        } else {
+           return super.onUse(state, world, pos, player, hand, hit);
+        }
+    }
 
     //returns wether or not a block can be teleported into by a frankenmelon
     private boolean canTeleportInto (BlockPos pos, ServerWorld world){

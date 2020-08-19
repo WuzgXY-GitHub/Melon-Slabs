@@ -2,7 +2,7 @@
 	"name": "text.melonslabs.patchouli.materials.diamond.title",
 	"icon": "minecraft:diamond_block",
 	"category": "materials",
-	"sortnum": 3,
+	"sortnum": 1,
 	"pages": [
 		{
             "type":"melonslabs:material_template",
@@ -10,7 +10,7 @@
 			"title":"text.melonslabs.patchouli.materials.diamond.title",
 			"jump_width":8,
 			"carry_weight":"§l23",
-			"carry_weight_thick":false,
+			"carry_weight_thin":true,
 			"move_speed":"§l0.3",
 			"leg_hp_width":75,
 			"leg_weight":"§l4"
@@ -21,6 +21,7 @@
 			"attack_delay":"§l0.9",
 			"arm_hp_width":75,
 			"arm_weight":"§l2",
+			"arm_weight_thin":true,
 			"regen_delay":"§l12",
 			"armor_width":"§l10½",
 			"armor_long": true,

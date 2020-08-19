@@ -1,0 +1,33 @@
+{
+	"name": "text.melonslabs.patchouli.materials.netherite.title",
+	"icon": "minecraft:netherite_block",
+	"category": "materials",
+	"sortnum": 0,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:netherite_block",
+			"title":"text.melonslabs.patchouli.materials.netherite.title",
+			"jump_width":20,
+			"carry_weight":"§l25",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.35",
+			"leg_hp_width":90,
+			"leg_weight":"§l4½"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":55,
+			"attack_delay":"§l0.8",
+			"arm_hp_width":85,
+			"arm_weight":"§l2¼",
+			"arm_weight_thin":true,
+			"regen_delay":"§l8",
+			"armor_width":"§l12½",
+			"armor_long": true,
+			"torso_long_hp":true,
+			"torso_hp_width":"§l17½",
+			"torso_weight":"§l9"
+		}
+	]
+}

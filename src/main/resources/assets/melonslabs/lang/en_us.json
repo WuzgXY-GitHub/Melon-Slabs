@@ -35,5 +35,16 @@
     "text.melonslabs.patchouli.materials.iron.title":"Iron",
     "text.melonslabs.patchouli.materials.gold.title":"Gold",
     "text.melonslabs.patchouli.materials.slime.title":"Slime",
-    "text.melonslabs.patchouli.materials.diamond.title":"Diamond"
+    "text.melonslabs.patchouli.materials.diamond.title":"Diamond",
+    "text.melonslabs.patchouli.materials.wood.title":"Oak Wood",
+    "text.melonslabs.patchouli.materials.mushroom_stem.title":"Mushroom Stem",
+    "text.melonslabs.patchouli.materials.red_mushroom.title":"Red Mushroom",
+    "text.melonslabs.patchouli.materials.brown_mushroom.title":"Brown Mushroom",
+    "text.melonslabs.patchouli.materials.bone.title":"Bone",
+    "text.melonslabs.patchouli.materials.hay.title":"Hay",
+    "text.melonslabs.patchouli.materials.netherite.title":"Netherite",
+    "text.melonslabs.patchouli.materials.redstone.title":"Redstone",
+    "text.melonslabs.patchouli.materials.prismarine.title":"Prismarine",
+    "text.melonslabs.patchouli.materials.obsidian.title":"Obsidian"
+
 }

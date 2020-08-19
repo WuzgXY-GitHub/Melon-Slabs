@@ -27,6 +27,31 @@
             "image": "melonslabs:textures/book/hearts.png",
             "x": 48,
             "y": 15,
+            "width": 9,
+            "height": 8,
+            "texture_width": 128,
+            "texture_height": 8,
+            "guard":"#dmg_long"
+        },
+        {
+            "type": "text",
+            "text": "§lx",
+            "y": 15,
+            "x": 59,
+            "guard": "#dmg_long"
+        },
+        {
+            "type": "text",
+            "text": "#attack_width",
+            "y": 15,
+            "x": 64,
+            "guard": "#dmg_long"
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/hearts.png",
+            "x": 48,
+            "y": 15,
             "width": "#attack_width",
             "height": 8,
             "texture_width": 128,
@@ -84,7 +109,19 @@
             "width": 16,
             "height": 16,
             "texture_width": 16,
-            "texture_height": 16
+            "texture_height": 16,
+            "guard": "#arm_weight_thin"
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/weight.png",
+            "x": 28,
+            "y": 54,
+            "width": 32,
+            "height": 16,
+            "texture_width": 32,
+            "texture_height": 16,
+            "guard": "#arm_weight_thick"
         },
         {
             "type": "header",
@@ -93,7 +130,18 @@
             "x": 37,
             "color":"FFFFFF",
             "centered":true,
-            "scale":0.7
+            "scale":0.7,
+            "guard": "#arm_weight_thin"
+        },
+        {
+            "type": "header",
+            "text": "#arm_weight",
+            "y": 61,
+            "x": 44,
+            "color":"FFFFFF",
+            "centered":true,
+            "scale":0.7,
+            "guard": "#arm_weight_thick"
         },
         {
             "type": "header",

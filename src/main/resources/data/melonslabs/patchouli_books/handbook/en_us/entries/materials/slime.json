@@ -2,7 +2,7 @@
 	"name": "text.melonslabs.patchouli.materials.slime.title",
 	"icon": "minecraft:slime_block",
 	"category": "materials",
-	"sortnum": 2,
+	"sortnum": 9,
 	"pages": [
 		{
             "type":"melonslabs:material_template",
@@ -22,6 +22,7 @@
 			"attack_delay":"§l0.5",
 			"arm_hp_width":35,
 			"arm_weight":"§l1½",
+			"arm_weight_thin":true,
 			"regen_delay":"§l4",
             "armor_width":0,
             "no_armor":true,

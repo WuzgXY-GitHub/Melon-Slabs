@@ -1,0 +1,31 @@
+{
+	"name": "text.melonslabs.patchouli.materials.wood.title",
+	"icon": "minecraft:oak_log",
+	"category": "materials",
+	"sortnum": 8,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:oak_log",
+			"title":"text.melonslabs.patchouli.materials.wood.title",
+			"jump_width":24,
+			"carry_weight":"§l15",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.5",
+			"leg_hp_width":15,
+			"leg_weight":"§l2"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":30,
+			"attack_delay":"§l1.1",
+			"arm_hp_width":10,
+			"arm_weight":"§l1",
+			"arm_weight_thin":true,
+			"regen_delay":"§l3",
+			"armor_width":25,
+			"torso_hp_width":25,
+			"torso_weight":"§l4"
+		}
+	]
+}

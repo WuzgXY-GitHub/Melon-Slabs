@@ -2,7 +2,7 @@
 	"name": "text.melonslabs.patchouli.materials.iron.title",
 	"icon": "minecraft:iron_block",
 	"category": "materials",
-	"sortnum": 0,
+	"sortnum": 2,
 	"pages": [
 		{
             "type":"melonslabs:material_template",
@@ -21,6 +21,7 @@
 			"attack_delay":"§l1",
 			"arm_hp_width":60,
 			"arm_weight":"§l2½",
+			"arm_weight_thin":true,
 			"regen_delay":"§l10",
 			"armor_width":75,
 			"torso_long_hp":true,
