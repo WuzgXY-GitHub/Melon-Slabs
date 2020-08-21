@@ -10,13 +10,19 @@
     "block.melonslabs.carved_melon": "Carved Melon",
     "block.melonslabs.jill_o_slab": "Jill O'Slab",
     "block.melonslabs.jill_o_lantern": "Jill O'Lantern",
+    "block.melonslabs.frankenmelon": "Frankenmelon",
+    "block.melonslabs.lightning_rod": "Lightning Rod",
+    
     "itemGroup.melonslabs.group": "Melon Slabs",
+    
     "item.melonslabs.pumpkin_slice": "Pumpkin Slice",
     "item.melonslabs.cooked_pumpkin_slice": "Cooked Pumpkin Slice",
+    "item.melonslabs.dead_potion": "Dead Potion",
+    "item.melonslabs.living_potion": "Living Potion",
+    
     "advancements.melonslabs.frankenmelon.title": "The Spark Of Life",
     "advancements.melonslabs.frankenmelon.description": "Create a frankenmelon by channeling life into a half pumpkin half melon block.",
-    "block.melonslabs.frankenmelon": "Frankenmelon",
-
+    
     "subtitles.melonslabs.frankenmelon_hurt": "Frankenmelon gets hurt",
     "text.melonslabs.manual.landing": "This book before you         Lays out the secrets of an    Otherworldy art.",
     "item.melonslabs.handbook": "A Golemancer's Guide",

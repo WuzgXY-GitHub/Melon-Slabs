@@ -1,0 +1,12 @@
+{
+    "type": "nbtcrafting:brewing",
+    "base": {
+      "item": "melonslabs:dead_potion"
+    },
+    "ingredient": {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    "result": {
+      "item": "melonslabs:living_potion"
+    }
+}

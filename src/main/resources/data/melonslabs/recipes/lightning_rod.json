@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#g#",
+        "igi",
+        "iHi"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_bars"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "H": {
+            "item": "minecraft:heavy_weighted_pressure_plate"
+        }
+    },
+    "result": {
+        "item": "melonslabs:lightning_rod",
+        "count": 1
+    }
+}

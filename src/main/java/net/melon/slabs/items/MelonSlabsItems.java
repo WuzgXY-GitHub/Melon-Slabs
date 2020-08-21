@@ -27,11 +27,15 @@ public class MelonSlabsItems {
         public static final Item CARVED_PUMPKIN_SLAB = new BlockItem(MelonSlabsBlocks.CARVED_PUMPKIN_SLAB, new Item.Settings().group(GROUP));
         public static final Item JACK_O_SLAB = new BlockItem(MelonSlabsBlocks.JACK_O_SLAB, new Item.Settings().group(GROUP));
         public static final Item FRANKENMELON = new BlockItem(MelonSlabsBlocks.FRANKENMELON, new Item.Settings().group(GROUP));
+        public static final Item LIGHTNING_ROD = new BlockItem(MelonSlabsBlocks.LIGHTNING_ROD, new Item.Settings().group(GROUP));
 
         //Food Items
         public static final Item PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).snack().build()));
         public static final Item COOKED_PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(2.4f).build()));
 
+        //Potion Items
+        public static final Item DEAD_POTION = new MelonSlabsPotion(new Item.Settings().group(GROUP).maxCount(1));
+        public static final Item LIVING_POTION = new MelonSlabsPotion(new Item.Settings().group(GROUP).maxCount(1));
 
         //register items
         public static void registerItems(){
@@ -49,5 +53,8 @@ public class MelonSlabsItems {
             Registry.register(Registry.ITEM, "melonslabs:pumpkin_slice", PUMPKIN_SLICE);
             Registry.register(Registry.ITEM, "melonslabs:cooked_pumpkin_slice", COOKED_PUMPKIN_SLICE);
             Registry.register(Registry.ITEM, "melonslabs:frankenmelon", FRANKENMELON);
+            Registry.register(Registry.ITEM, "melonslabs:lightning_rod", LIGHTNING_ROD);
+            Registry.register(Registry.ITEM, "melonslabs:dead_potion", DEAD_POTION);
+            Registry.register(Registry.ITEM, "melonslabs:living_potion", LIVING_POTION);
         }
 }
