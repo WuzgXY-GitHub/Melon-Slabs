@@ -42,8 +42,8 @@ dependencies {
     include "vazkii.patchouli:Patchouli:${patchouli_version}"
 
 	//nbtcrafting for potion recipes
-	modImplementation "curse.maven:nbt-crafting:3032559"
-	include "curse.maven:nbt-crafting:3032559"
+	// modImplementation "curse.maven:nbt-crafting:3032559"
+	// include "curse.maven:nbt-crafting:3032559"
 	// modImplementation "com.github.Siphalor:nbt-crafting:${nbt_crafting_version}"
     // include "com.github.Siphalor:nbt-crafting:${nbt_crafting_version}"
 	// modImplementation "vazkii.patchouli:Patchouli:local"

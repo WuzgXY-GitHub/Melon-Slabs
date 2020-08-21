@@ -51,6 +51,15 @@
     "text.melonslabs.patchouli.materials.netherite.title":"Netherite",
     "text.melonslabs.patchouli.materials.redstone.title":"Redstone",
     "text.melonslabs.patchouli.materials.prismarine.title":"Prismarine",
-    "text.melonslabs.patchouli.materials.obsidian.title":"Obsidian"
+    "text.melonslabs.patchouli.materials.obsidian.title":"Obsidian",
 
+    "item.minecraft.potion.effect.melonslabs_dead":"Dead Potion",
+    "item.minecraft.splash_potion.effect.melonslabs_dead":"Dead Splash Potion",
+    "item.minecraft.lingering_potion.effect.melonslabs_dead":"Dead Lingering Potion",
+    "item.minecraft.potion.effect.melonslabs_living":"Living Potion",
+    "item.minecraft.splash_potion.effect.melonslabs_living":"Living Splash Potion",
+    "item.minecraft.lingering_potion.effect.melonslabs_living":"Living Lingering Potion",
+
+    "effect.minecraft.melonslabs_dead":"It feels ... dead?",
+    "effect.minecraft.melonslabs_living":"It feels ... alive?"
 }
