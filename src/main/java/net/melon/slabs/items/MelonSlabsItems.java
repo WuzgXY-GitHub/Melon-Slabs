@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class MelonSlabsItems {
@@ -33,6 +34,9 @@ public class MelonSlabsItems {
         //Food Items
         public static final Item PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).snack().build()));
         public static final Item COOKED_PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(2.4f).build()));
+        
+        //lightning_bottle
+        public static final Item LIGHTNING_BOTTLE = new LightningBottleItem(new Item.Settings().group(GROUP).rarity(Rarity.EPIC));
 
         //register items
         public static void registerItems(){
@@ -52,5 +56,6 @@ public class MelonSlabsItems {
             Registry.register(Registry.ITEM, "melonslabs:frankenmelon", FRANKENMELON);
             Registry.register(Registry.ITEM, "melonslabs:lightning_rod", LIGHTNING_ROD);
             Registry.register(Registry.ITEM, "melonslabs:lightning_collector", LIGHTNING_COLLECTOR);
+            Registry.register(Registry.ITEM, "melonslabs:lightning_bottle", LIGHTNING_BOTTLE);
         }
 }

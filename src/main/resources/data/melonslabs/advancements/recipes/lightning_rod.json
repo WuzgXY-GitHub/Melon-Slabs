@@ -11,7 +11,7 @@
         "conditions": {
           "items": [
             {
-              "item": "minecraft:lightning_collector"
+              "item": "melonslabs:lightning_collector"
             }
           ]
         }

@@ -2,6 +2,7 @@ package net.melon.slabs.blocks;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.registry.Registry;
 
@@ -23,6 +24,9 @@ public class MelonSlabsBlocks {
     public static final Block LIGHTNING_ROD = new LightningRod();
     public static final Block LIGHTNING_COLLECTOR = new LightningCollector();
 
+    //block entities
+    public static BlockEntityType<LightningCollectorEntity> LIGHTNING_COLLECTOR_ENTITY;
+
     public static void registerBlocks(){
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB);
         Registry.register(Registry.BLOCK, "melonslabs:jill_o_lantern", JILL_O_LANTERN);
@@ -38,6 +42,8 @@ public class MelonSlabsBlocks {
         Registry.register(Registry.BLOCK, "melonslabs:frankenmelon", FRANKENMELON);
         Registry.register(Registry.BLOCK, "melonslabs:lightning_rod", LIGHTNING_ROD);
         Registry.register(Registry.BLOCK, "melonslabs:lightning_collector", LIGHTNING_COLLECTOR);
+
+        LIGHTNING_COLLECTOR_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "melonslabs:lightning_collector", BlockEntityType.Builder.create(LightningCollectorEntity::new, LIGHTNING_COLLECTOR).build(null));
     }
 
     public static void putRenderLayers(){

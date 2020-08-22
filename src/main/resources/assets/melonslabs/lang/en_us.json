@@ -12,13 +12,13 @@
     "block.melonslabs.jill_o_lantern": "Jill O'Lantern",
     "block.melonslabs.frankenmelon": "Frankenmelon",
     "block.melonslabs.lightning_rod": "Lightning Rod",
+    "block.melonslabs.lightning_collector": "Lightning Collector",
     
     "itemGroup.melonslabs.group": "Melon Slabs",
     
     "item.melonslabs.pumpkin_slice": "Pumpkin Slice",
     "item.melonslabs.cooked_pumpkin_slice": "Cooked Pumpkin Slice",
-    "item.melonslabs.dead_potion": "Dead Potion",
-    "item.melonslabs.living_potion": "Living Potion",
+    "item.melonslabs.lightning_bottle": "Bottled Lightning",
     
     "advancements.melonslabs.frankenmelon.title": "The Spark Of Life",
     "advancements.melonslabs.frankenmelon.description": "Create a frankenmelon by channeling life into a half pumpkin half melon block.",
@@ -60,6 +60,6 @@
     "item.minecraft.splash_potion.effect.melonslabs_living":"Living Splash Potion",
     "item.minecraft.lingering_potion.effect.melonslabs_living":"Living Lingering Potion",
 
-    "effect.minecraft.melonslabs_dead":"It feels ... dead?",
-    "effect.minecraft.melonslabs_living":"It feels ... alive?"
+    "effect.minecraft.melonslabs_dead":"It seems ... dead?",
+    "effect.minecraft.melonslabs_living":"It seems ... alive?"
 }
