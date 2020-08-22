@@ -1,0 +1,13 @@
+{
+    "variants": {
+      "bottle_state=0": {
+        "model": "melonslabs:block/lightning_collector_empty"
+      },
+      "bottle_state=1": {
+        "model": "melonslabs:block/lightning_collector_living"
+      },
+      "bottle_state=2": {
+        "model": "melonslabs:block/lightning_collector_lit"
+      }
+    }
+}

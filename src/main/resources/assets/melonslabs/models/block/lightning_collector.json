@@ -1,0 +1,9 @@
+{
+    "parent": "melonslabs:block/orientable_with_sides",
+    "textures": {
+      "top": "minecraft:block/iron_block",
+      "front": "minecraft:block/iron_block",
+      "side": "minecraft:block/melon_side",
+      "bottom": "minecraft:block/quartz_block_side"
+    }
+  }

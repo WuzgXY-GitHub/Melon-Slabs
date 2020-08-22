@@ -19,8 +19,9 @@ public class MelonSlabsBlocks {
     public static final Block MELON_STAIRS = new MelonStairs();
     public static final Block FRANKENMELON = new FrankenMelon();
 
-    //ritual (tech?) block
+    //ritual (tech?) blocks
     public static final Block LIGHTNING_ROD = new LightningRod();
+    public static final Block LIGHTNING_COLLECTOR = new LightningCollector();
 
     public static void registerBlocks(){
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB);
@@ -36,12 +37,14 @@ public class MelonSlabsBlocks {
         Registry.register(Registry.BLOCK, "melonslabs:jack_o_slab", JACK_O_SLAB);
         Registry.register(Registry.BLOCK, "melonslabs:frankenmelon", FRANKENMELON);
         Registry.register(Registry.BLOCK, "melonslabs:lightning_rod", LIGHTNING_ROD);
+        Registry.register(Registry.BLOCK, "melonslabs:lightning_collector", LIGHTNING_COLLECTOR);
     }
 
     public static void putRenderLayers(){
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.CACTUS_SLAB, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.JACK_O_SLAB, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.JILL_O_SLAB, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.LIGHTNING_COLLECTOR, RenderLayer.getCutout());
         // BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.LIGHTNING_ROD, RenderLayer.getCutout());
     }
 }

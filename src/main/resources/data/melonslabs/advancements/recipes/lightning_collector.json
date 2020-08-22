@@ -2,16 +2,16 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
       "recipes": [
-        "melonslabs:lightning_rod"
+        "melonslabs:lightning_collector"
       ]
     },
     "criteria": {
-      "has_collector": {
+      "has_iron": {
         "trigger": "minecraft:inventory_changed",
         "conditions": {
           "items": [
             {
-              "item": "minecraft:lightning_collector"
+              "item": "minecraft:iron_ingot"
             }
           ]
         }
@@ -19,13 +19,13 @@
       "has_the_recipe": {
         "trigger": "minecraft:recipe_unlocked",
         "conditions": {
-          "recipe": "melonslabs:lightning_rod"
+          "recipe": "melonslabs:lightning_collector"
         }
       }
     },
     "requirements": [
       [
-        "has_collector",
+        "has_iron",
         "has_the_recipe"
       ]
     ]
