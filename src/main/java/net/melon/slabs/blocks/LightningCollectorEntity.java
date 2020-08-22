@@ -24,7 +24,35 @@ public class LightningCollectorEntity extends BlockEntity implements Implemented
     public LightningCollectorEntity() {
         super(MelonSlabsBlocks.LIGHTNING_COLLECTOR_ENTITY);
     }
-    
+
+    public void scheduleTick(){
+        this.getWorld().getBlockTickScheduler().schedule(this.getPos(), MelonSlabsBlocks.LIGHTNING_COLLECTOR, 1);
+    }
+
+    public int getBottleState(){
+        ItemStack stack = getStack(0);
+        int result = 0;
+        result = stack.getItem() == MelonSlabsItems.LIGHTNING_BOTTLE ? 2 : result;
+        
+        if (stack.hasTag()){
+            if (stack.getTag().asString().contains("minecraft:melonslabs_living")){
+                result = 1;
+            }
+        }
+
+        return result;
+    }
+
+    public void doLightning (){
+        ItemStack stack = getStack(0);
+        if (stack.hasTag()){
+            if (stack.getTag().asString().contains("minecraft:melonslabs_living")){
+                setStack(0, new ItemStack(MelonSlabsItems.LIGHTNING_BOTTLE, 1));
+                scheduleTick();
+            }
+        }
+    }
+
     //implementedInventory
     @Override
     public void fromTag(BlockState state, CompoundTag tag) {
@@ -73,4 +101,46 @@ public class LightningCollectorEntity extends BlockEntity implements Implemented
     // public Text getDisplayName() {
     //     return new TranslatableText(getCachedState().getBlock().getTranslationKey());
     // }
+
+    
+    //these next functions make sure to update the state whenever an item is added or removed
+    @Override
+    public ItemStack removeStack(int slot, int count) {
+        scheduleTick();
+
+        ItemStack result = Inventories.splitStack(getItems(), slot, count);
+        if (!result.isEmpty()) {
+            markDirty();
+        }
+        return result;
+    }
+ 
+    
+    @Override
+    public ItemStack removeStack(int slot) {
+        scheduleTick();
+
+        return Inventories.removeStack(getItems(), slot);
+    }
+ 
+    
+    @Override
+    public void setStack(int slot, ItemStack stack) {
+        scheduleTick();
+
+        getItems().set(slot, stack);
+        if (stack.getCount() > getMaxCountPerStack()) {
+            stack.setCount(getMaxCountPerStack());
+        }
+    }
+ 
+    /**
+     * Clears the inventory.
+     */
+    @Override
+    public void clear() {
+        scheduleTick();
+
+        getItems().clear();
+    }
 }

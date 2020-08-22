@@ -50,87 +50,8 @@ public class LightningCollector extends BlockWithEntity {
     public static final VoxelShape SHAPE6;
 
     public LightningCollector() {
-        super(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).ticksRandomly());
+        super(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(BOTTLE_STATE, 0));
-    }
-
-    //returns wether this block is ready to channel lightning
-    public boolean active(ServerWorld world, BlockPos pos){
-        return this.multiblockActive(world, pos) && world.hasRain(pos);
-    }
-
-    //sees if the multiblock structure is complete
-    private boolean multiblockActive(ServerWorld world, BlockPos pos){
-        //go through all the blocks in the multiblock one at a time
-
-        if (!world.getBlockState(pos.up()).isOf(MelonSlabsBlocks.LIGHTNING_ROD)){ return false;}
-
-        //central pillar
-        if (!world.getBlockState(pos.down()).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
-        if (!world.getBlockState(pos.down(2)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
-        if (!world.getBlockState(pos.down(3)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
-        if (!world.getBlockState(pos.down(4)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
-
-        //ladder
-        if (!world.getBlockState(pos.down(2).north()).isOf(Blocks.LADDER)){ return false;}
-        if (!world.getBlockState(pos.down(3).north()).isOf(Blocks.LADDER)){ return false;}
-        if (!world.getBlockState(pos.down(4).north()).isOf(Blocks.LADDER)){ return false;}
-
-        //jack o'slabs
-        if (!(world.getBlockState(pos.down(3).north(2).west(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(3).north(2).west(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
-        if (!world.getBlockState(pos.down(4).north(2).west(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).north(2).west(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
-        if (!(world.getBlockState(pos.down(3).north(2).east(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(3).north(2).west(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
-        if (!world.getBlockState(pos.down(4).north(2).east(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).north(2).east(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
-        if (!(world.getBlockState(pos.down(3).south(2).west(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(3).north(2).west(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
-        if (!world.getBlockState(pos.down(4).south(2).west(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).south(2).west(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
-        if (!(world.getBlockState(pos.down(3).south(2).east(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(3).north(2).west(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
-        if (!world.getBlockState(pos.down(4).south(2).east(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).south(2).east(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
-
-        //stairs
-        if (!world.getBlockState(pos.down(4).east()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(4).east().north()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(4).east().south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(4).west()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(4).west().north()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(4).west().south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(4).south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-
-        //platform center
-        if (!world.getBlockState(pos.down(5)).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).north()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).north().east()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).north().west()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).east()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).west()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).south()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).south().east()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-        if (!world.getBlockState(pos.down(5).south().west()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
-
-        //sideways pillars
-        if (!(world.getBlockState(pos.down(5).north(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).north(2)).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
-        if (!(world.getBlockState(pos.down(5).north(2).east()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).north(2).east()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
-        if (!(world.getBlockState(pos.down(5).north(2).west()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).north(2).west()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
-        if (!(world.getBlockState(pos.down(5).south(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).south(2)).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
-        if (!(world.getBlockState(pos.down(5).south(2).east()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).south(2).east()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
-        if (!(world.getBlockState(pos.down(5).south(2).west()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).south(2).west()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
-        if (!(world.getBlockState(pos.down(5).east(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).east(2)).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
-        if (!(world.getBlockState(pos.down(5).east(2).north()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).east(2).north()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
-        if (!(world.getBlockState(pos.down(5).east(2).south()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).east(2).south()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
-        if (!(world.getBlockState(pos.down(5).west(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).west(2)).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
-        if (!(world.getBlockState(pos.down(5).west(2).north()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).west(2).north()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
-        if (!(world.getBlockState(pos.down(5).west(2).south()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(5).west(2).south()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
-
-        return true;
-    }
-
-    //for debugging
-    @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        System.out.println(this.multiblockActive(world, pos));
     }
 
     //inventory stuff
@@ -205,6 +126,11 @@ public class LightningCollector extends BlockWithEntity {
   
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return state.get(BOTTLE_STATE) == 0 ? EMPTY_SHAPE : BOTTLE_SHAPE;
+    }
+
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        world.setBlockState(pos, this.getDefaultState().with(BOTTLE_STATE, ((LightningCollectorEntity)blockEntity).getBottleState()));
     }
 
     static{

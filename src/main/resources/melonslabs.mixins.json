@@ -8,7 +8,8 @@
       "MelonMixin",
       "TridentMixin",
       "CriteriaMixin",
-      "BrewingMixin"
+      "BrewingMixin",
+      "ServerWorldMixin"
     ],
     "client": [],
     "server": [],

@@ -69,11 +69,37 @@ public class FrankenMelon extends Block{
             if (!state.get(LIT)){
                 if (entity instanceof net.minecraft.entity.projectile.TridentEntity){
                     if (world.isThundering() && EnchantmentHelper.hasChanneling(((TridentMixin) entity).getTridentStack()) && world.isSkyVisible(pos.up())){
-                        world.setBlockState(pos, state.with(LIT, true).with(FACING, this.getRandomDirection()));
+                        
+                        boolean lightningRodNearby = false;
+                        //makes sure there is no lightningrod nearby to steal the lightning
+                        BlockPos tempPos;
+            
+                        int i;
+                        int j;
+                        int k;
+                        for (i=-32; i<33; i++){
+                            for (j=-32; j<33; j++){
+                                for (k=0; k<21; k++){
 
-                        Entity ownerEntity = ((net.minecraft.entity.projectile.TridentEntity) entity).getOwner();
-                        MelonSlabsCriteria.CREATED_FRANKENMELON.trigger((ownerEntity instanceof ServerPlayerEntity ? (ServerPlayerEntity)ownerEntity : null));
+                                    // tempPos = ((ServerWorldAccessorMixin)world).callGetSurface(base.north(i).east(j));
+                                    tempPos = pos.north(i).east(j).up(k);;
 
+                                    if(world.getBlockState(tempPos).isOf(MelonSlabsBlocks.LIGHTNING_ROD)){
+                                        // System.out.println("lightning rod found");
+                                        if(((LightningRod)MelonSlabsBlocks.LIGHTNING_ROD).isActive((ServerWorld)world, tempPos)){
+                                            lightningRodNearby = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (!lightningRodNearby){
+                            world.setBlockState(pos, state.with(LIT, true).with(FACING, this.getRandomDirection()));
+
+                            Entity ownerEntity = ((net.minecraft.entity.projectile.TridentEntity) entity).getOwner();
+                            MelonSlabsCriteria.CREATED_FRANKENMELON.trigger((ownerEntity instanceof ServerPlayerEntity ? (ServerPlayerEntity)ownerEntity : null));
+                        }
                         LightningEntity lightningEntity = (LightningEntity)EntityType.LIGHTNING_BOLT.create(world);
                         lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(pos));
                         lightningEntity.setChanneler(null);

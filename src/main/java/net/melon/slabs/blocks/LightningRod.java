@@ -1,17 +1,30 @@
 package net.melon.slabs.blocks;
 
+import java.util.Random;
+
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.melon.slabs.properties.MelonSlabsProperties;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.enums.SlabType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 
 public class LightningRod extends Block{
     public static final VoxelShape SHAPE;
@@ -27,8 +40,89 @@ public class LightningRod extends Block{
     public static final VoxelShape SHAPE10;
 
     public LightningRod() {
-        // super(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
-        super(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).ticksRandomly());
+        super(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
+        // super(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).ticksRandomly());
+    }
+
+    //returns wether this block is ready to channel lightning
+    public boolean isActive(ServerWorld world, BlockPos pos){
+        return this.multiblockActive(world, pos);
+    }
+
+    //sees if the multiblock structure is complete
+    private boolean multiblockActive(ServerWorld world, BlockPos pos){
+        //go through all the blocks in the multiblock one at a time
+
+        if (!world.getBlockState(pos.down()).isOf(MelonSlabsBlocks.LIGHTNING_COLLECTOR)){ return false;}
+
+        //central pillar
+        if (!world.getBlockState(pos.down(2)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
+        if (!world.getBlockState(pos.down(3)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
+        if (!world.getBlockState(pos.down(4)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
+        if (!world.getBlockState(pos.down(5)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
+
+        //ladder
+        if (!world.getBlockState(pos.down(3).north()).isOf(Blocks.LADDER)){ return false;}
+        if (!world.getBlockState(pos.down(4).north()).isOf(Blocks.LADDER)){ return false;}
+        if (!world.getBlockState(pos.down(5).north()).isOf(Blocks.LADDER)){ return false;}
+
+        //jack o'slabs
+        if (!(world.getBlockState(pos.down(4).north(2).west(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(4).north(2).west(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
+        if (!world.getBlockState(pos.down(5).north(2).west(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).north(2).west(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
+        if (!(world.getBlockState(pos.down(4).north(2).east(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(4).north(2).east(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
+        if (!world.getBlockState(pos.down(5).north(2).east(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).north(2).east(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
+        if (!(world.getBlockState(pos.down(4).south(2).west(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(4).south(2).west(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
+        if (!world.getBlockState(pos.down(5).south(2).west(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).south(2).west(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
+        if (!(world.getBlockState(pos.down(4).south(2).east(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(4).south(2).east(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
+        if (!world.getBlockState(pos.down(5).south(2).east(2)).isOf(Blocks.CHISELED_QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).south(2).east(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
+
+        //stairs
+        if (!world.getBlockState(pos.down(5).east()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (!world.getBlockState(pos.down(5).east().north()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (!world.getBlockState(pos.down(5).east().south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (!world.getBlockState(pos.down(5).west()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (!world.getBlockState(pos.down(5).west().north()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (!world.getBlockState(pos.down(5).west().south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (!world.getBlockState(pos.down(5).south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+
+        //platform center
+        if (!world.getBlockState(pos.down(6)).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).north()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).north().east()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).north().west()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).east()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).west()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).south()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).south().east()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+        if (!world.getBlockState(pos.down(6).south().west()).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
+
+        //sideways pillars
+        if (!(world.getBlockState(pos.down(6).north(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).north(2)).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
+        if (!(world.getBlockState(pos.down(6).north(2).east()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).north(2).east()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
+        if (!(world.getBlockState(pos.down(6).north(2).west()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).north(2).west()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
+        if (!(world.getBlockState(pos.down(6).south(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).south(2)).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
+        if (!(world.getBlockState(pos.down(6).south(2).east()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).south(2).east()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
+        if (!(world.getBlockState(pos.down(6).south(2).west()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).south(2).west()).get(PillarBlock.AXIS) == Direction.Axis.X)){ return false;}
+        if (!(world.getBlockState(pos.down(6).east(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).east(2)).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
+        if (!(world.getBlockState(pos.down(6).east(2).north()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).east(2).north()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
+        if (!(world.getBlockState(pos.down(6).east(2).south()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).east(2).south()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
+        if (!(world.getBlockState(pos.down(6).west(2)).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).west(2)).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
+        if (!(world.getBlockState(pos.down(6).west(2).north()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).west(2).north()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
+        if (!(world.getBlockState(pos.down(6).west(2).south()).isOf(Blocks.QUARTZ_PILLAR) && world.getBlockState(pos.down(6).west(2).south()).get(PillarBlock.AXIS) == Direction.Axis.Z)){ return false;}
+
+        return true;
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!world.isClient) {
+            player.sendMessage(this.multiblockActive((ServerWorld)world, pos) ? new LiteralText("Multiblock complete") : new LiteralText("Multiblock incomplete"), true);
+        }
+        return ActionResult.SUCCESS;
     }
 
     @Override
