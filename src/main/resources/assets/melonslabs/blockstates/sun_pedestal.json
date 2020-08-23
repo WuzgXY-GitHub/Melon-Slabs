@@ -1,0 +1,19 @@
+{
+    "variants": {
+      "facing=east": {
+        "model": "melonslabs:block/sun_pedestal",
+        "y": 270
+      },
+      "facing=north": {
+        "model": "melonslabs:block/sun_pedestal",
+        "y": 180
+      },
+      "facing=south": {
+        "model": "melonslabs:block/sun_pedestal"
+      },
+      "facing=west": {
+        "model": "melonslabs:block/sun_pedestal",
+        "y": 90
+      }
+    }
+  }

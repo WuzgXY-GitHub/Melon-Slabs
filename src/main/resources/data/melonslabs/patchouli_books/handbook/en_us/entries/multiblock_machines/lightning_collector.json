@@ -20,13 +20,13 @@
                     "B": "minecraft:quartz_block",
                     "0": "minecraft:quartz_block",
                     "b": "minecraft:quartz_bricks",
-                    "S": "minecraft:quartz_stairs[facing=south]",
+                    "S": "minecraft:quartz_stairs",
                     "2": "minecraft:quartz_stairs[facing=east]",
-                    "3": "minecraft:quartz_stairs[facing=east,shape=outer_left]",
-                    "1": "minecraft:quartz_stairs[facing=east,shape=outer_right]",
+                    "3": "minecraft:quartz_stairs[shape=outer_right]",
+                    "1": "minecraft:quartz_stairs[shape=outer_left]",
                     "5": "minecraft:quartz_stairs[facing=west]",
-                    "4": "minecraft:quartz_stairs[facing=west,shape=outer_left]",
-                    "6": "minecraft:quartz_stairs[facing=west,shape=outer_right]",
+                    "4": "minecraft:quartz_stairs[shape=outer_right]",
+                    "6": "minecraft:quartz_stairs[shape=outer_left]",
                     "L": "minecraft:ladder[facing=south]",
                     "P": "minecraft:quartz_pillar",
                     "X": "minecraft:quartz_pillar[axis=x]",
@@ -41,7 +41,7 @@
                     ["     ","     ","  P  ","     ","     "],
                     ["     ","     ","  PL ","     ","     "],
                     ["J   J","     ","  PL ","     ","J   J"],
-                    ["C   C"," 123 "," SPL "," 456 ","C   C"],
+                    ["C   C"," SSS "," SPL "," SSS ","C   C"],
                     ["bZZZb","XBBBX","XB0BX","XBBBX","bZZZb"]
                 ]
             }

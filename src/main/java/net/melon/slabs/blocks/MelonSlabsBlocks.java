@@ -23,6 +23,7 @@ public class MelonSlabsBlocks {
     //ritual (tech?) blocks
     public static final Block LIGHTNING_ROD = new LightningRod();
     public static final Block LIGHTNING_COLLECTOR = new LightningCollector();
+    public static final Block SUN_PEDESTAL = new SunPedestal();
 
     //block entities
     public static BlockEntityType<LightningCollectorEntity> LIGHTNING_COLLECTOR_ENTITY;
@@ -42,6 +43,7 @@ public class MelonSlabsBlocks {
         Registry.register(Registry.BLOCK, "melonslabs:frankenmelon", FRANKENMELON);
         Registry.register(Registry.BLOCK, "melonslabs:lightning_rod", LIGHTNING_ROD);
         Registry.register(Registry.BLOCK, "melonslabs:lightning_collector", LIGHTNING_COLLECTOR);
+        Registry.register(Registry.BLOCK, "melonslabs:sun_pedestal", SUN_PEDESTAL);
 
         LIGHTNING_COLLECTOR_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "melonslabs:lightning_collector", BlockEntityType.Builder.create(LightningCollectorEntity::new, LIGHTNING_COLLECTOR).build(null));
     }

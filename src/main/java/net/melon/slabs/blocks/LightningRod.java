@@ -62,9 +62,14 @@ public class LightningRod extends Block{
         if (!world.getBlockState(pos.down(5)).isOf(Blocks.QUARTZ_PILLAR)){ return false;}
 
         //ladder
-        if (!world.getBlockState(pos.down(3).north()).isOf(Blocks.LADDER)){ return false;}
-        if (!world.getBlockState(pos.down(4).north()).isOf(Blocks.LADDER)){ return false;}
-        if (!world.getBlockState(pos.down(5).north()).isOf(Blocks.LADDER)){ return false;}
+        String direction = "none";
+        if (world.getBlockState(pos.down(3).north()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(4).north()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(5).north()).isOf(Blocks.LADDER)){ direction = "n";}
+        if (world.getBlockState(pos.down(3).east()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(4).east()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(5).east()).isOf(Blocks.LADDER)){ direction = "e";}
+        if (world.getBlockState(pos.down(3).south()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(4).south()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(5).south()).isOf(Blocks.LADDER)){ direction = "s";}
+        if (world.getBlockState(pos.down(3).west()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(4).west()).isOf(Blocks.LADDER) && world.getBlockState(pos.down(5).west()).isOf(Blocks.LADDER)){ direction = "w";}
+
+
+        if (direction == "none"){ return false;}
 
         //jack o'slabs
         if (!(world.getBlockState(pos.down(4).north(2).west(2)).isOf(MelonSlabsBlocks.JACK_O_SLAB) && world.getBlockState(pos.down(4).north(2).west(2)).get(JackOSlab.TYPE) == SlabType.BOTTOM)){ return false;}
@@ -81,13 +86,14 @@ public class LightningRod extends Block{
         if (!world.getBlockState(pos.down(6).south(2).east(2)).isOf(Blocks.QUARTZ_BRICKS)){ return false;}
 
         //stairs
-        if (!world.getBlockState(pos.down(5).east()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (direction != "e" && !world.getBlockState(pos.down(5).east()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
         if (!world.getBlockState(pos.down(5).east().north()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
         if (!world.getBlockState(pos.down(5).east().south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(5).west()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (direction != "w" && !world.getBlockState(pos.down(5).west()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
         if (!world.getBlockState(pos.down(5).west().north()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
         if (!world.getBlockState(pos.down(5).west().south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
-        if (!world.getBlockState(pos.down(5).south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (direction != "s" && !world.getBlockState(pos.down(5).south()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
+        if (direction != "n" && !world.getBlockState(pos.down(5).north()).isOf(Blocks.QUARTZ_STAIRS)){ return false;}
 
         //platform center
         if (!world.getBlockState(pos.down(6)).isOf(Blocks.QUARTZ_BLOCK)){ return false;}
