@@ -38,16 +38,16 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//patchoulli - for the golem handbook
-	modImplementation "vazkii.patchouli:Patchouli:${patchouli_version}"
-    include "vazkii.patchouli:Patchouli:${patchouli_version}"
+	// modImplementation "vazkii.patchouli:Patchouli:${patchouli_version}"
+    // include "vazkii.patchouli:Patchouli:${patchouli_version}"
 
 	//nbtcrafting for potion recipes
 	// modImplementation "curse.maven:nbt-crafting:3032559"
 	// include "curse.maven:nbt-crafting:3032559"
 	// modImplementation "com.github.Siphalor:nbt-crafting:${nbt_crafting_version}"
     // include "com.github.Siphalor:nbt-crafting:${nbt_crafting_version}"
-	// modImplementation "vazkii.patchouli:Patchouli:local"
-    // include "vazkii.patchouli:Patchouli:local"
+	modImplementation "vazkii.patchouli:Patchouli:local"
+    include "vazkii.patchouli:Patchouli:local"
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
 }

@@ -2,10 +2,93 @@
     "components": [
         {
             "type": "header",
-            "text": "text.melonslabs.patchouli.brewing.header",
-            "x": 0,
+            "text": "#header",
+            "x": 56.5,
             "y": 0,
             "centered":true
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/brewing_background.png",
+            "x": 8,
+            "y": 10,
+            "width": 96,
+            "height": 96,
+            "texture_width": 96,
+            "texture_height": 96
+        },
+        {
+            "type": "item",
+            "item": "#fuel",
+            "x": 12,
+            "y": 14
+        },
+        {
+            "type": "item",
+            "item": "#input",
+            "x": 48,
+            "y": 50
+        },
+        {
+            "type": "item",
+            "item": "#result",
+            "x": 84,
+            "y": 50,
+            "link_recipe": true
+        },
+        {
+            "type": "item",
+            "item": "#ingredient",
+            "x": 48,
+            "y": 14
+        },
+        {
+            "type": "header",
+            "text": "#header2",
+            "x": 56.5,
+            "y": 75,
+            "centered":true,
+            "guard":"#two_recipes"
+        },
+        {
+            "type": "image",
+            "image": "melonslabs:textures/book/brewing_background.png",
+            "x": 8,
+            "y": 85,
+            "width": 96,
+            "height": 96,
+            "texture_width": 96,
+            "texture_height": 96,
+            "guard":"#two_recipes"
+        },
+        {
+            "type": "item",
+            "item": "#fuel2",
+            "x": 12,
+            "y": 89,
+            "guard":"#two_recipes"
+        },
+        {
+            "type": "item",
+            "item": "#input2",
+            "x": 48,
+            "y": 125,
+            "guard":"#two_recipes"
+        },
+        {
+            "type": "item",
+            "item": "#result2",
+            "x": 84,
+            "y": 125,
+            "guard":"#two_recipes",
+            "link_recipe": true
+        },
+        {
+            "type": "item",
+            "item": "#ingredient2",
+            "x": 48,
+            "y": 89,
+            "guard":"#two_recipes"
         }
     ]
 }
