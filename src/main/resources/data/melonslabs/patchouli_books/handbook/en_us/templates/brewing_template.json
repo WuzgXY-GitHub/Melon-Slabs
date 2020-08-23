@@ -1,0 +1,11 @@
+{
+    "components": [
+        {
+            "type": "header",
+            "text": "text.melonslabs.patchouli.brewing.header",
+            "x": 0,
+            "y": 0,
+            "centered":true
+        }
+    ]
+}

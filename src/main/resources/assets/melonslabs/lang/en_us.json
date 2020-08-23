@@ -32,6 +32,8 @@
     "text.melonslabs.patchouli.introduction.description":"From slabs to golems to material properties, this chapter will teach you the foundation on which the art of golemancy lies.",
     "text.melonslabs.patchouli.materials.title":"Materials",
     "text.melonslabs.patchouli.materials.description":"Each material comes with unique properties, this chapter covers them all one by one.",
+    "text.melonslabs.patchouli.multiblock_machines.title": "Multiblock Machines",
+	"text.melonslabs.patchouli.multiblock_machines.description": "From harnessing the power of the weather to completing ancient rituals, some tasks require structures more complex than a single block.  This chapter is your guide to them all.",
 
     "text.melonslabs.patchouli.materials.arm":"§nArm properties:",
     "text.melonslabs.patchouli.materials.torso":"§nTorso properties:",
@@ -52,6 +54,10 @@
     "text.melonslabs.patchouli.materials.redstone.title":"Redstone",
     "text.melonslabs.patchouli.materials.prismarine.title":"Prismarine",
     "text.melonslabs.patchouli.materials.obsidian.title":"Obsidian",
+
+    "text.melonslabs.patchouli.multiblock_machines.lightning_collector.title": "Lightning Collector",
+    "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description": "Any lightning (channeled or natural) that tries to spawn within a 65 x 65 square centered around the $(l:multiblock_machines/lightning_collector#recipes)$(item)lightning rod block$() (and between 0 to 20 blocks below the rod) will be redirected to it.  $(br2)When lightning is redirected to the rod, any living potion in the $(l:multiblock_machines/lightning_collector#recipes)$(item)lightning collector block$() will assimilate the lightning and become a lightning bottle.",
+    "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description2": "The structure must be built with the ladders on the north face of the pillar. You can right-click the lightning rod to see if the structure is built properly.  $(br2)To insert a living potion into the collector block, simply right click it with one in your hand.  It should appear in the center of the block.  Right click the block with an empty hand to remove whatever is stored in it.",
 
     "item.minecraft.potion.effect.melonslabs_dead":"Dead Potion",
     "item.minecraft.splash_potion.effect.melonslabs_dead":"Dead Splash Potion",

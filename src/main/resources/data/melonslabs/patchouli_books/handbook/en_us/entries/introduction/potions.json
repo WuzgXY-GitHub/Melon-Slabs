@@ -1,0 +1,16 @@
+{
+	"name": "text.melonslabs.patchouli.introduction.potions.title",
+	"icon": "minecraft:potion",
+	"category": "introduction",
+	"sortnum": 0,
+	"pages": [
+		{
+            "type": "text",
+            "text": "text.melonslabs.patchouli.introduction.potions.description"
+        },
+        {
+            "type": "text",
+            "text": "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description2"
+        }
+	]
+}
