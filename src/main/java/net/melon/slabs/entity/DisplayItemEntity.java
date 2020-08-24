@@ -10,7 +10,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class DisplayItemEntity extends ItemEntity{
-    public DisplayItemEntity(ServerWorld world, double x, double y, double z, ItemStack stack) {
+    public DisplayItemEntity(World world, double x, double y, double z, ItemStack stack) {
         super(world, x, y, z, stack);
         this.noClip = false;
         this.setPickupDelayInfinite();
@@ -21,6 +21,10 @@ public class DisplayItemEntity extends ItemEntity{
 
     @Override
     public void tick() {
+
+        //resets age
+        this.setCovetedItem();
+
         if (this.getStack().isEmpty()) {
             this.remove();
          } else {

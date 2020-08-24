@@ -49,7 +49,7 @@ public class MelonSlabsBlocks {
         Registry.register(Registry.BLOCK, "melonslabs:mirror", MIRROR);
 
         LIGHTNING_COLLECTOR_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "melonslabs:lightning_collector", BlockEntityType.Builder.create(LightningCollectorEntity::new, LIGHTNING_COLLECTOR).build(null));
-        SUN_PEDESTAL_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "melonslabs:sun_pedestak", BlockEntityType.Builder.create(SunPedestalEntity::new, SUN_PEDESTAL).build(null));
+        SUN_PEDESTAL_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "melonslabs:sun_pedestal", BlockEntityType.Builder.create(SunPedestalEntity::new, SUN_PEDESTAL).build(null));
     }
 
     public static void putRenderLayers(){

@@ -48,6 +48,7 @@
 			}
 		},
 		{
+			"shade": false,
 			"name": "backing",
 			"from": [1, 9, 1],
 			"to": [15, 10, 15],
@@ -62,6 +63,7 @@
 			}
 		},
 		{
+			"shade": false,
 			"name": "glass",
 			"from": [1, 10, 1],
 			"to": [15, 11, 15],
