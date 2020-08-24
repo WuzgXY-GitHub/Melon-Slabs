@@ -64,8 +64,11 @@ public class SunPedestal extends BlockWithEntity{
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof LightningCollectorEntity) {
-                ItemScatterer.spawn(world, pos, (LightningCollectorEntity)blockEntity);
+            if (blockEntity instanceof SunPedestalEntity) {
+                ItemScatterer.spawn(world, pos, (SunPedestalEntity)blockEntity);
+                if(!world.isClient){
+                    ((SunPedestalEntity)blockEntity).removeDisplay((ServerWorld)world, pos);
+                }
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
