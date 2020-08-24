@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntTag;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -78,12 +79,17 @@ public class SunPedestalEntity extends BlockEntity implements ImplementedInvento
     public void setLocation(World world, BlockPos pos) {
         this.world = world;
         this.pos = pos.toImmutable();
-        world.getBlockTickScheduler().schedule(pos, MelonSlabsBlocks.SUN_PEDESTAL, 40);
+        world.getBlockTickScheduler().schedule(pos, MelonSlabsBlocks.SUN_PEDESTAL, 2);
     }
  
+    // @Override
+    // public void Tick(){
+
+    // }
+
     @Override
     public CompoundTag toTag(CompoundTag tag) {
-        removeDisplay(world, pos);
+        // removeDisplay(world, pos);
         Inventories.toTag(tag,items);
         // displayItemEntity.toTag(tag);
         // tag.putInt("displayEntityId", displayEntityId);
