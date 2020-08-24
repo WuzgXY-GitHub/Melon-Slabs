@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " ig",
+        "sws"
+    ],
+    "key": {
+        "s": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:glass_pane"
+        },
+        "w": {
+            "item": "minecraft:oak_planks"
+        },
+        "i": {
+            "item": "minecraft:heavy_weighted_pressure_plate"
+        }
+    },
+    "result": {
+        "item": "melonslabs:mirror",
+        "count": 1
+    }
+}

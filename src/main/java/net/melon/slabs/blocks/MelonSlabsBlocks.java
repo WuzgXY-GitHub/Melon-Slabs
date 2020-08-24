@@ -24,9 +24,11 @@ public class MelonSlabsBlocks {
     public static final Block LIGHTNING_ROD = new LightningRod();
     public static final Block LIGHTNING_COLLECTOR = new LightningCollector();
     public static final Block SUN_PEDESTAL = new SunPedestal();
+    public static final Block MIRROR = new Mirror();
 
     //block entities
     public static BlockEntityType<LightningCollectorEntity> LIGHTNING_COLLECTOR_ENTITY;
+    public static BlockEntityType<SunPedestalEntity> SUN_PEDESTAL_ENTITY;
 
     public static void registerBlocks(){
         Registry.register(Registry.BLOCK, "melonslabs:cactus_slab", CACTUS_SLAB);
@@ -44,8 +46,10 @@ public class MelonSlabsBlocks {
         Registry.register(Registry.BLOCK, "melonslabs:lightning_rod", LIGHTNING_ROD);
         Registry.register(Registry.BLOCK, "melonslabs:lightning_collector", LIGHTNING_COLLECTOR);
         Registry.register(Registry.BLOCK, "melonslabs:sun_pedestal", SUN_PEDESTAL);
+        Registry.register(Registry.BLOCK, "melonslabs:mirror", MIRROR);
 
         LIGHTNING_COLLECTOR_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "melonslabs:lightning_collector", BlockEntityType.Builder.create(LightningCollectorEntity::new, LIGHTNING_COLLECTOR).build(null));
+        SUN_PEDESTAL_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "melonslabs:sun_pedestak", BlockEntityType.Builder.create(SunPedestalEntity::new, SUN_PEDESTAL).build(null));
     }
 
     public static void putRenderLayers(){
@@ -53,6 +57,7 @@ public class MelonSlabsBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.JACK_O_SLAB, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.JILL_O_SLAB, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.LIGHTNING_COLLECTOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.MIRROR, RenderLayer.getCutout());
         // BlockRenderLayerMap.INSTANCE.putBlock(MelonSlabsBlocks.LIGHTNING_ROD, RenderLayer.getCutout());
     }
 }

@@ -13,6 +13,8 @@
     "block.melonslabs.frankenmelon": "Frankenmelon",
     "block.melonslabs.lightning_rod": "Lightning Rod",
     "block.melonslabs.lightning_collector": "Lightning Collector",
+    "block.melonslabs.sun_pedestal": "Pedestal",
+    "block.melonslabs.mirror": "Mirror",
     
     "itemGroup.melonslabs.group": "Melon Slabs",
     
@@ -57,7 +59,7 @@
 
     "text.melonslabs.patchouli.multiblock_machines.lightning_collector.title": "Lightning Collector",
     "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description": "Any lightning (channeled or natural) that tries to spawn within a 65 x 65 square centered around the $(l:multiblock_machines/lightning_collector#recipes)$(item)lightning rod block$() (and between 0 to 20 blocks below the rod) will be redirected to it.  $(br2)When lightning is redirected to the rod, any $(l:introduction/potions)$(item)living potion$() in the $(l:multiblock_machines/lightning_collector#recipes)$(item)lightning collector block$() will assimilate the lightning and become $(l:introduction/potions#lightning)$(item)bottled lightning$().",
-    "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description2": "The structure must be built with the ladders on the north face of the pillar. You can right-click the $(l:multiblock_machines/lightning_collector#recipes)$(item)lightning rod$() to see if the structure is built properly.  $(br2)To insert a $(l:introduction/potions)$(item)living potion$() into the $(l:multiblock_machines/lightning_collector#recipes)$(item)collector$() block, simply right click it with one in your hand.  It should appear in the center of the block.  Right click the block with an empty hand to remove whatever is stored in it.",
+    "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description2": "You can right-click the $(l:multiblock_machines/lightning_collector#recipes)$(item)lightning rod$() to see if the structure is built properly.  $(br2)To insert a $(l:introduction/potions)$(item)living potion$() into the $(l:multiblock_machines/lightning_collector#recipes)$(item)collector$() block, simply right click it with one in your hand.  It should appear in the center of the block.  Right click the block with an empty hand to remove whatever is stored in it.",
 
     "text.melonslabs.patchouli.introduction.potions.title": "Living Potions",
     "text.melonslabs.patchouli.introduction.potions.description": "While living potions grant no effect upon consumption, these bottled souls hold the key to controlling the patterns of weather, and time itself.  $(br2)Through various multiblocks, they can assimilate natural energies and transform into various elemental bottles.",

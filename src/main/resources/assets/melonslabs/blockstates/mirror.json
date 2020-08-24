@@ -1,0 +1,19 @@
+{
+    "variants": {
+      "facing=east": {
+        "model": "melonslabs:block/mirror"
+      },
+      "facing=north": {
+        "model": "melonslabs:block/mirror",
+        "y": 270
+      },
+      "facing=south": {
+        "model": "melonslabs:block/mirror",
+        "y": 90
+      },
+      "facing=west": {
+        "model": "melonslabs:block/mirror",
+        "y": 180
+      }
+    }
+  }

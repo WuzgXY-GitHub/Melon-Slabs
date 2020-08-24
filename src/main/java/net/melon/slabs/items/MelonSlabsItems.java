@@ -30,6 +30,8 @@ public class MelonSlabsItems {
         public static final Item FRANKENMELON = new BlockItem(MelonSlabsBlocks.FRANKENMELON, new Item.Settings().group(GROUP));
         public static final Item LIGHTNING_ROD = new BlockItem(MelonSlabsBlocks.LIGHTNING_ROD, new Item.Settings().group(GROUP));
         public static final Item LIGHTNING_COLLECTOR = new BlockItem(MelonSlabsBlocks.LIGHTNING_COLLECTOR, new Item.Settings().group(GROUP));
+        public static final Item SUN_PEDESTAL = new BlockItem(MelonSlabsBlocks.SUN_PEDESTAL, new Item.Settings().group(GROUP));
+        public static final Item MIRROR = new BlockItem(MelonSlabsBlocks.MIRROR, new Item.Settings().group(GROUP));
 
         //Food Items
         public static final Item PUMPKIN_SLICE = new Item(new Item.Settings().group(GROUP).food(new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).snack().build()));
@@ -57,5 +59,7 @@ public class MelonSlabsItems {
             Registry.register(Registry.ITEM, "melonslabs:lightning_rod", LIGHTNING_ROD);
             Registry.register(Registry.ITEM, "melonslabs:lightning_collector", LIGHTNING_COLLECTOR);
             Registry.register(Registry.ITEM, "melonslabs:lightning_bottle", LIGHTNING_BOTTLE);
+            Registry.register(Registry.ITEM, "melonslabs:sun_pedestal", SUN_PEDESTAL);
+            Registry.register(Registry.ITEM, "melonslabs:mirror", MIRROR);
         }
 }

@@ -53,6 +53,8 @@ public class LightningRod extends Block{
     private boolean multiblockActive(ServerWorld world, BlockPos pos){
         //go through all the blocks in the multiblock one at a time
 
+        if (!world.isSkyVisible(pos)){ return false;}
+
         if (!world.getBlockState(pos.down()).isOf(MelonSlabsBlocks.LIGHTNING_COLLECTOR)){ return false;}
 
         //central pillar
