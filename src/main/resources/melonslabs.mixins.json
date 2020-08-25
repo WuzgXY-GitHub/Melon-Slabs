@@ -4,7 +4,12 @@
     "package": "net.melon.slabs.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": ["ComposterMixin",
-      "CactusMixin"
+      "CactusMixin",
+      "MelonMixin",
+      "TridentMixin",
+      "CriteriaMixin",
+      "BrewingMixin",
+      "ServerWorldMixin"
     ],
     "client": [],
     "server": [],

@@ -1,0 +1,32 @@
+{
+	"name": "text.melonslabs.patchouli.introduction.potions.title",
+	"icon": "minecraft:potion",
+	"category": "introduction",
+	"sortnum": 0,
+	"pages": [
+		{
+            "type": "text",
+            "text": "text.melonslabs.patchouli.introduction.potions.description"
+        },
+        {
+            "type": "melonslabs:brewing_template",
+            "header": "item.minecraft.potion.effect.melonslabs_dead",
+            "fuel": "minecraft:blaze_powder",
+            "ingredient": "minecraft:player_head{display:{Name:\\'{\"text\":\"Any head or skull\"}\\'}}",
+            "input": "minecraft:potion#3{Potion:\"minecraft:awkward\"}",
+            "result": "minecraft:potion#3{Potion:\"minecraft:melonslabs_dead\"}",
+            "two_recipes": true,
+            "header2": "item.minecraft.potion.effect.melonslabs_living",
+            "fuel2": "minecraft:blaze_powder",
+            "ingredient2": "minecraft:fermented_spider_eye",
+            "input2": "minecraft:potion#3{Potion:\"minecraft:melonslabs_dead\"}",
+            "result2": "minecraft:potion#3{Potion:\"minecraft:melonslabs_living\"}"
+        },
+        {
+            "anchor": "lightning",
+            "type": "spotlight",
+            "item": "melonslabs:lightning_bottle",
+            "text": "text.melonslabs.patchouli.introduction.potions.lightning_bottle"
+        }
+	]
+}

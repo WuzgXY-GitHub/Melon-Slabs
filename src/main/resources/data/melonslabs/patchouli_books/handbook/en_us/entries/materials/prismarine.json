@@ -1,0 +1,31 @@
+{
+	"name": "text.melonslabs.patchouli.materials.prismarine.title",
+	"icon": "minecraft:prismarine",
+	"category": "materials",
+	"sortnum": 6,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:prismarine",
+			"title":"text.melonslabs.patchouli.materials.prismarine.title",
+			"jump_width":10,
+			"carry_weight":"§l16",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.25",
+			"leg_hp_width":40,
+			"leg_weight":"§l4½"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":45,
+			"attack_delay":"§l1.4",
+			"arm_hp_width":35,
+			"arm_weight":"§l1¼",
+			"arm_weight_thin":true,
+			"regen_delay":"§l10",
+            "armor_width":25,
+			"torso_hp_width":75,
+			"torso_weight":"§l9"
+		}
+	]
+}

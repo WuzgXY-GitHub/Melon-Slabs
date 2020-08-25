@@ -1,0 +1,31 @@
+{
+	"name": "text.melonslabs.patchouli.materials.mushroom_stem.title",
+	"icon": "minecraft:mushroom_stem",
+	"category": "materials",
+	"sortnum": 10,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:mushroom_stem",
+			"title":"text.melonslabs.patchouli.materials.mushroom_stem.title",
+			"jump_width":14,
+			"carry_weight":"§l15",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.3",
+			"leg_hp_width":25,
+			"leg_weight":"§l2"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":15,
+			"attack_delay":"§l0.8",
+			"arm_hp_width":25,
+			"arm_weight":"§l1",
+			"arm_weight_thin":true,
+			"regen_delay":"§l4",
+			"armor_width":25,
+			"torso_hp_width":50,
+			"torso_weight":"§l4"
+		}
+	]
+}

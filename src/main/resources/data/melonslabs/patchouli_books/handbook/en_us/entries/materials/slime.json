@@ -1,0 +1,34 @@
+{
+	"name": "text.melonslabs.patchouli.materials.slime.title",
+	"icon": "minecraft:slime_block",
+	"category": "materials",
+	"sortnum": 9,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:slime_block",
+			"title":"text.melonslabs.patchouli.materials.slime.title",
+			"jump_width":60,
+			"carry_weight":"§l10",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.1",
+			"leg_hp_width":40,
+			"leg_weight":"§l3"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+            "attack_width":0,
+            "no_attack":true,
+			"attack_delay":"§l0.5",
+			"arm_hp_width":35,
+			"arm_weight":"§l1½",
+			"arm_weight_thin":true,
+			"regen_delay":"§l4",
+            "armor_width":0,
+            "no_armor":true,
+			"torso_long_hp":false,
+			"torso_hp_width":75,
+			"torso_weight":"§l6"
+		}
+	]
+}

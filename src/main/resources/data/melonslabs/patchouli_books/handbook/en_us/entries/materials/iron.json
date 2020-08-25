@@ -1,0 +1,32 @@
+{
+	"name": "text.melonslabs.patchouli.materials.iron.title",
+	"icon": "minecraft:iron_block",
+	"category": "materials",
+	"sortnum": 2,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:iron_block",
+			"title":"text.melonslabs.patchouli.materials.iron.title",
+			"jump_width":8,
+			"carry_weight":"§l17½",
+			"carry_weight_thick":true,
+			"move_speed":"§l0.25",
+			"leg_hp_width":65,
+			"leg_weight":"§l5"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":45,
+			"attack_delay":"§l1",
+			"arm_hp_width":60,
+			"arm_weight":"§l2½",
+			"arm_weight_thin":true,
+			"regen_delay":"§l10",
+			"armor_width":75,
+			"torso_long_hp":true,
+			"torso_hp_width":"§l12½",
+			"torso_weight":"§l10"
+		}
+	]
+}

@@ -1,0 +1,32 @@
+{
+	"name": "text.melonslabs.patchouli.materials.gold.title",
+	"icon": "minecraft:gold_block",
+	"category": "materials",
+	"sortnum": 3,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:gold_block",
+			"title":"text.melonslabs.patchouli.materials.gold.title",
+			"jump_width":"20",
+			"carry_weight":"§l10",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.75",
+			"leg_hp_width":65,
+			"leg_weight":"§l6½"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":15,
+			"attack_delay":"§l0.5",
+			"arm_hp_width":60,
+			"arm_weight":"§l3¼",
+			"arm_weight_thin":true,
+			"regen_delay":"§l6",
+			"armor_width":55,
+			"torso_long_hp":true,
+			"torso_hp_width":"§l12½",
+			"torso_weight":"§l13"
+		}
+	]
+}

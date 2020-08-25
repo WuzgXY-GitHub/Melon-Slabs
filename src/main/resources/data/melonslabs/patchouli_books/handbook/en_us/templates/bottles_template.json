@@ -1,0 +1,48 @@
+{
+    "components": [
+        {
+            "type": "header",
+            "text": "#header",
+            "x": 56.5,
+            "y": 0,
+            "centered":true
+        },
+        {
+            "type": "item",
+            "item": "#bottle_1",
+            "x": 0,
+            "y": 15,
+            "framed": true
+        },
+        {
+            "type": "text",
+            "text": "#text_1",
+            "x": 15,
+            "y": 15
+        },
+        {
+            "type": "item",
+            "item": "#bottle_2",
+            "x": 0,
+            "y": 45
+        },
+        {
+            "type": "text",
+            "item": "#text_12",
+            "x": 15,
+            "y": 45
+        },
+        {
+            "type": "item",
+            "item": "#bottle_3",
+            "x": 0,
+            "y": 75
+        },
+        {
+            "type": "text",
+            "item": "#text_3",
+            "x": 15,
+            "y": 75
+        }
+    ]
+}

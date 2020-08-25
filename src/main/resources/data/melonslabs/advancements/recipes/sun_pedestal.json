@@ -1,0 +1,32 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+      "recipes": [
+        "melonslabs:sun_pedestal"
+      ]
+    },
+    "criteria": {
+      "has_mirror": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "item": "melonslabs:mirror"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "melonslabs:sun_pedestal"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_mirror",
+        "has_the_recipe"
+      ]
+    ]
+  }

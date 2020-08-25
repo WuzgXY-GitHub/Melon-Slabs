@@ -1,0 +1,31 @@
+{
+	"name": "text.melonslabs.patchouli.materials.bone.title",
+	"icon": "minecraft:bone_block",
+	"category": "materials",
+	"sortnum": 7,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:bone_block",
+			"title":"text.melonslabs.patchouli.materials.bone.title",
+			"jump_width":10,
+			"carry_weight":"§l25",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.25",
+			"leg_hp_width":50,
+			"leg_weight":"§l1"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":35,
+			"attack_delay":"§l1",
+			"arm_hp_width":50,
+			"arm_weight":"§l0.5",
+			"arm_weight_thick":true,
+			"regen_delay":"§l25",
+			"armor_width":50,
+			"torso_hp_width":100,
+			"torso_weight":"§l2"
+		}
+	]
+}

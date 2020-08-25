@@ -1,0 +1,32 @@
+{
+	"name": "text.melonslabs.patchouli.materials.hay.title",
+	"icon": "minecraft:hay_block",
+	"category": "materials",
+	"sortnum": 13,
+	"pages": [
+		{
+            "type":"melonslabs:material_template",
+            "item":"minecraft:hay_block",
+			"title":"text.melonslabs.patchouli.materials.hay.title",
+			"jump_width":4,
+			"carry_weight":"§l5",
+			"carry_weight_thin":true,
+			"move_speed":"§l0.2",
+			"leg_hp_width":5,
+			"leg_weight":"§l1"
+		},
+		{
+			"type":"melonslabs:material_template_p2",
+			"attack_width":5,
+			"attack_delay":"§l0.2",
+			"arm_hp_width":5,
+			"arm_weight":"§l0.5",
+			"arm_weight_thick":true,
+			"regen_delay":"§l1",
+            "armor_width":0,
+            "no_armor":true,
+			"torso_hp_width":10,
+			"torso_weight":"§l2"
+		}
+	]
+}
