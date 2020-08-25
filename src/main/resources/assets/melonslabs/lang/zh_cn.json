@@ -26,16 +26,16 @@
     "advancements.melonslabs.frankenmelon.description": "将生命灌注至一个半西瓜半南瓜方块来创造出科学怪瓜。",
     
     "subtitles.melonslabs.frankenmelon_hurt": "科学怪瓜：受伤",
-    "text.melonslabs.manual.landing": "揭开一门超自然艺术的迷雾前的一本书。",
+    "text.melonslabs.manual.landing": "拨开一门超自然艺术的迷雾前的一本书。",
     "item.melonslabs.handbook": "傀儡使之指导",
-    "text.melonslabs.patchouli.golem_types.title":"傀儡种类",
+    "text.melonslabs.patchouli.golem_types.title":"种类",
     "text.melonslabs.patchouli.golem_types.description":"From guard to steed to companion, frankengolems come in all sorts of shapes and sizes (more coming soon).  This chapter is your guide to them all.",
-    "text.melonslabs.patchouli.introduction.title":"Introduction",
+    "text.melonslabs.patchouli.introduction.title":"介绍",
     "text.melonslabs.patchouli.introduction.description":"From slabs to golems to material properties, this chapter will teach you the foundation on which the art of golemancy lies.",
-    "text.melonslabs.patchouli.materials.title":"Materials",
+    "text.melonslabs.patchouli.materials.title":"材料",
     "text.melonslabs.patchouli.materials.description":"Each material comes with unique properties, this chapter covers them all one by one.",
-    "text.melonslabs.patchouli.multiblock_machines.title": "多方块机器",
-	"text.melonslabs.patchouli.multiblock_machines.description": "From harnessing the power of the weather to completing ancient rituals, some tasks require structures more complex than a single block.  This chapter is your guide to them all.",
+    "text.melonslabs.patchouli.multiblock_machines.title": "结构",
+    "text.melonslabs.patchouli.multiblock_machines.description": "From harnessing the power of the weather to completing ancient rituals, some tasks require structures more complex than a single block.  This chapter is your guide to them all.",
 
     "text.melonslabs.patchouli.materials.arm":"§n上肢特性：",
     "text.melonslabs.patchouli.materials.torso":"§n躯干特性：",
@@ -58,7 +58,7 @@
     "text.melonslabs.patchouli.materials.obsidian.title":"黑曜石",
 
     "text.melonslabs.patchouli.multiblock_machines.lightning_collector.title": "雷电收集器",
-    "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description": "任何试着生成于$(l:multiblock_machines/lightning_collector#recipes)$(item)避雷针方块$()附近 65 x 65 格、向下 0 ~ 20 格范围内的闪电（无论是引来的还是自然的）都会被引导至避雷针。$(br2)当闪电被引导至避雷针时，$(l:introduction/potions)$(item)living potion$() in the $(l:multiblock_machines/lightning_collector#recipes)$(item)lightning collector block$() will assimilate the lightning and become $(l:introduction/potions#lightning)$(item)bottled lightning$().",
+    "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description": "任何试着生成于$(l:multiblock_machines/lightning_collector#recipes)$(item)避雷针方块$()附近 65 x 65 格、向下 0 ~ 20 格范围内的闪电（无论是引来的还是自然的）都会被引导至避雷针。$(br2)当闪电被引导至避雷针时，$(l:multiblock_machines/lightning_collector#recipes)$(item)雷电收集器$()中的$(l:introduction/potions)$(item)生存药水$()会吸收闪电并将其转化为$(l:introduction/potions#lightning)$(item)瓶装闪电$()。",
     "text.melonslabs.patchouli.multiblock_machines.lightning_collector.description2": "你可以右击$(l:multiblock_machines/lightning_collector#recipes)$(item)避雷针方块$()来查看结构是否已被正确建造。$(br2)To insert a $(l:introduction/potions)$(item)living potion$() into the $(l:multiblock_machines/lightning_collector#recipes)$(item)collector$() block, simply right click it with one in your hand.  It should appear in the center of the block.  Right click the block with an empty hand to remove whatever is stored in it.",
 
     "text.melonslabs.patchouli.introduction.potions.title": "Living Potions",
